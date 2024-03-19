@@ -1,15 +1,24 @@
+import 'package:bidding_app/Screens/Chats-Screen/demoItems.dart';
 import 'package:bidding_app/Screens/Chats-Screen/widgets/chat_tile_widget.dart';
-import 'package:bidding_app/Screens/Messages-Screen/views/messages_screen.dart';
+import 'package:bidding_app/Screens/Chats-Screen/Providers/provider.dart';
+import 'package:bidding_app/Screens/Messages-Screen/widgets/dismiss_widget.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/constants/app_texts.dart';
+import 'package:bidding_app/resources/app_texts.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ChatsScreen extends StatelessWidget {
+  // final List<ChatOverview> _allUsers=demoChatList;
+  // final List<ChatOverview> _filteredUsers=demoChatList;
+
   const ChatsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return Consumer<ChatsProvider>(builder: (context, value, child) {
+
+
     return Scaffold(
       appBar: AppBar(
           title: BoldTextWidget(
@@ -21,27 +30,30 @@ class ChatsScreen extends StatelessWidget {
           padding: EdgeInsets.all(FetchPixels.getPixelHeight(20)),
           child: Column(
             children: [
-              const TextField(
+              TextField(
+                onChanged: (searchText) => value.search(searchText),
                 decoration: InputDecoration(
                     hintText: AppTexts.search, prefixIcon: Icon(Icons.search_rounded)),
               ),
               SizedBox(height: FetchPixels.getPixelHeight(10),),
               Expanded(
                 child: ListView.separated(
-                  itemCount: 10,
+                  itemCount:
+                  (value.filteredUsers.isEmpty)?
+                      value.allUsers.length: value.filteredUsers.length,
                   itemBuilder: (context, index) {
-                    return const ChatTileWidget(
-                      title: 'Shop Name',
-                      subTitle:
-                          'Lorem ipsum dolor sit amet. Sit architecto possimus et possimus corporis cum.',
-                          hasNewMessage: true,
-                    );
-                  }, separatorBuilder: (BuildContext context, int index) { return SizedBox(height: FetchPixels.getPixelHeight(5)); },
+                    return dismiss_widget(context, ChatTileWidget(
+                        chat:
+                        (value.filteredUsers.isEmpty)?
+                    value.allUsers[index]: value.filteredUsers[index]), 1);
+                  },
+                  separatorBuilder: (BuildContext context, int index) { return SizedBox(height: FetchPixels.getPixelHeight(5)); },
                 ),
               )
             ],
           )),
     );
+    },);
   }
 }
 

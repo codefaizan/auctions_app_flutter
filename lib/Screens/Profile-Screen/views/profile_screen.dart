@@ -1,17 +1,20 @@
 import 'package:bidding_app/Screens/About-Screen/views/about_screen.dart';
 import 'package:bidding_app/Screens/Auctions-Screen/views/auctions_screen.dart';
+import 'package:bidding_app/Screens/Auth/Login-Screen/views/login_screen.dart';
+import 'package:bidding_app/Screens/Auth/Signup-Screen/views/signup_screen.dart';
 import 'package:bidding_app/Screens/Bids-Screen/views/bids_screen.dart';
+import 'package:bidding_app/Screens/New-Product-Screen/views/new_product_screen.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/resources/app_images.dart';
-import 'package:bidding_app/constants/tConstants.dart';
 import 'package:bidding_app/Screens/ContactUs-Screen/views/contactus_screen.dart';
 import 'package:bidding_app/Screens/Chats-Screen/views/chats_screen.dart';
 import 'package:bidding_app/Screens/Privacy-Policy-Screen/views/privacy_policy_screen.dart';
 import 'package:bidding_app/Screens/Products-Screen/views/products_screen.dart';
-import 'package:bidding_app/constants/app_texts.dart';
-import 'package:bidding_app/widgets/theme-constants/theme.dart';
+import 'package:bidding_app/resources/app_texts.dart';
+import 'package:bidding_app/resources/theme.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -176,7 +179,7 @@ class ProfileScreen extends StatelessWidget {
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(10)),
                     child: TextButton.icon(
-                        onPressed: () {},
+                        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context)=> NewProductScreen())),
                         icon: Container(
                           padding: EdgeInsets.all(FetchPixels.getPixelHeight(1)),
                           decoration: const BoxDecoration(
@@ -296,7 +299,10 @@ class ProfileScreen extends StatelessWidget {
             TextButton(
                 onPressed: () {
                   ShowBottomSheets(AppTexts.deleteAccount,
-                      AppTexts.deleteConfirmation, context);
+                      AppTexts.deleteConfirmation, context,
+                          ()=> Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>SignupScreen()), (route) => false),
+                          ()=>Navigator.of(context).pop()
+                  );
                 },
                 child:  RegularTextWidget(
                   text: AppTexts.deleteAccount,
@@ -305,7 +311,10 @@ class ProfileScreen extends StatelessWidget {
             TextButton(
                 onPressed: () {
                   ShowBottomSheets(
-                      AppTexts.logOut, AppTexts.logoutConfirmation, context);
+                      AppTexts.logOut, AppTexts.logoutConfirmation, context,
+                      ()=> Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>LoginScreen()), (route) => false),
+                      ()=>Navigator.of(context).pop()
+                  );
                 },
                 child:  RegularTextWidget(
                   text: AppTexts.logOut,
@@ -318,29 +327,29 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  void ShowBottomSheets(String title, String subTitle, BuildContext context) {
+  void ShowBottomSheets(String title, String subTitle, BuildContext context, void onYesOption()?, void onNoOption()?) {
     showModalBottomSheet(
         context: context,
         builder: (BuildContext) => Container(
-              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),
+              padding: EdgeInsets.symmetric(vertical: FetchPixels.getPixelHeight(25), horizontal: FetchPixels.getPixelWidth(25)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
               
                 children: [
-                  BoldTextWidget(text: title, fontSize: 21),
-                  SizedBox(height: 10,),
-                  RegularTextWidget(text: subTitle, fontSize: 15),
-                  SizedBox(height: 10,),
+                  BoldTextWidget(text: title, fontSize:FetchPixels.getPixelHeight (22)),
+                  SizedBox(height: FetchPixels.getPixelHeight(10),),
+                  RegularTextWidget(text: subTitle, fontSize: FetchPixels.getPixelHeight(17)),
+                  SizedBox(height: FetchPixels.getPixelHeight(10),),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: onNoOption,
                     child: BoldTextWidget(
                       text: AppTexts.no,
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: FetchPixels.getPixelHeight(10),),
                   OutlinedButton(
-                    onPressed: () {},
+                    onPressed: onYesOption,
                     child: BoldTextWidget(
                       text: AppTexts.yes,
                     ),

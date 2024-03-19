@@ -11,6 +11,11 @@ static const String accountCreatedSuccessfully='You account has been successfull
 static const String alreadyHaveAccount='Already have an account?';
 static const String dontHaveAccount="Don't have an account?";
 static const String fieldCantBeEmpty="This field can't be empty";
+static const String enterValidPhoneNumber="Enter a valid phone number";
+static const String enterValidEmail="Enter a valid email address";
+static const String passwordCantBeEmpty="Password can't be empty";
+static const String enterStrongPassword="Enter a strong password";
+static const String passwordNotMatch="Password doesn't match";
 static const String auctions='Auctions';
 static const String products='Products';
 static const String searchHere='Search here';
@@ -129,6 +134,7 @@ static const String newPassword='New Password';
 static const String update='Update';
 static const String passwordUpdated='You password has been successfully updated.';
 static const String updateEMark='Update!';
+
 
 
 

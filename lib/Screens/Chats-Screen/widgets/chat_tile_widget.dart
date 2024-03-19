@@ -1,15 +1,14 @@
+import 'package:bidding_app/Screens/Chats-Screen/demoItems.dart';
 import 'package:bidding_app/Screens/Messages-Screen/views/messages_screen.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
 class ChatTileWidget extends StatelessWidget {
-  final String title;
-  final String subTitle;
-  final bool hasNewMessage;
+  final ChatOverview chat;
 
   const ChatTileWidget(
-      {super.key, required this.title, required this.subTitle, required this.hasNewMessage});
+      {required this.chat});
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +21,15 @@ class ChatTileWidget extends StatelessWidget {
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context)=>const MessagesScreen()));
         },
-        title: BoldTextWidget(text: title, fontSize: FetchPixels.getPixelHeight(18)),
-        subtitle: RegularTextWidget(text: subTitle, fontSize: FetchPixels.getPixelHeight(17), maxLines: 2, overFlow: TextOverflow.clip,),
+        title: BoldTextWidget(text: chat.title, fontSize: FetchPixels.getPixelHeight(18)),
+        subtitle: RegularTextWidget(text: chat.subTitle, fontSize: FetchPixels.getPixelHeight(17), maxLines: 2, overFlow: TextOverflow.clip,),
         leading: CircleAvatar(
             radius: FetchPixels.getPixelHeight(37),
-            foregroundImage: AssetImage('assets/images/profile_img.png')),
+            foregroundImage: AssetImage(chat.avatar)),
         trailing: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            (hasNewMessage)?
+            (chat.hasNewMessage)?
             Container(
                 decoration: const BoxDecoration(
                     shape: BoxShape.circle, color: Colors.black),

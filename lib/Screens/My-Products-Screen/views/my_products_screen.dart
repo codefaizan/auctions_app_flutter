@@ -1,7 +1,7 @@
-import 'package:bidding_app/Screens/Add-New-Product-Screen/views/add_new_product_screen.dart';
+import 'package:bidding_app/Screens/New-Product-Screen/views/new_product_screen.dart';
 import 'package:bidding_app/Screens/My-Products-Screen/widgets/my_product_item_widget..dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/constants/app_texts.dart';
+import 'package:bidding_app/resources/app_texts.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +31,7 @@ class MyProductsScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         shape: CircleBorder(),
-        onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> AddNewProductScreen())),
+        onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> NewProductScreen())),
         child: Icon(Icons.add, size: FetchPixels.getPixelHeight(35)),
         ),
     );

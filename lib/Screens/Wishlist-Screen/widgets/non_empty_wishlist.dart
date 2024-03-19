@@ -1,8 +1,10 @@
-import 'package:bidding_app/Models/Item.dart';
+import 'package:bidding_app/Models/Auction.dart';
+import 'package:bidding_app/Models/Product.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/widgets/Bottom-Nav-Bar/create_new_item_widget.dart';
-import 'package:bidding_app/constants/app_texts.dart';
-import 'package:bidding_app/widgets/theme-constants/theme.dart';
+import 'package:bidding_app/widgets/AuctionContainerWidget.dart';
+import 'package:bidding_app/resources/app_texts.dart';
+import 'package:bidding_app/resources/theme.dart';
+import 'package:bidding_app/widgets/ProductContainerWidget.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -83,25 +85,25 @@ class _NonEmptyWishlistScreenState extends State<NonEmptyWishlistScreen> {
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
             GridView.builder(
-              itemCount: demoItemsList.length,
+              itemCount: demoProductsList.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisSpacing: FetchPixels.getPixelHeight(10), mainAxisSpacing: FetchPixels.getPixelHeight(5),
                 mainAxisExtent: FetchPixels.getPixelHeight(320),
                   crossAxisCount: 2,
                   ),
               itemBuilder: (context, index) {
-                return CreateNewItem(item: demoItemsList[index], itemIndex: index, itemCategory: ItemCategories.auctions, context: context);
+                return AuctionContainerWidget(auctionData: demoAuctionList[index], itemIndex: index,context: context);
               },
             ),
             GridView.builder(
-              itemCount: demoItemsList.length,
+              itemCount: demoProductsList.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisSpacing: FetchPixels.getPixelHeight(10), mainAxisSpacing: FetchPixels.getPixelHeight(5),
                 mainAxisExtent: FetchPixels.getPixelHeight(320),
                   crossAxisCount: 2,  
                   ),
               itemBuilder: (context, index) {
-                return CreateNewItem(item: demoItemsList[index], itemIndex: index, itemCategory: ItemCategories.products, context: context);
+                return ProductContainerWidget(productData: demoProductsList[index], itemIndex: index, context: context);
               },
             ),
           ]))

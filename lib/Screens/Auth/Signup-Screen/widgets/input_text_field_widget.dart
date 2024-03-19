@@ -1,15 +1,14 @@
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/constants/app_texts.dart';
 import 'package:flutter/material.dart';
 
 class InputTextField extends StatelessWidget {
-  final titleLabel;
+  final String? titleLabel;
   final Widget? suffix;
   bool obscureText;
   String? Function(String?)? validator;
+  TextEditingController? controller;
 
-  InputTextField({super.key, required this.titleLabel, this.suffix, this.obscureText=true, this.validator});
-
+  InputTextField({super.key, this.titleLabel, this.suffix, this.obscureText=false, this.validator, this.controller});
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -21,14 +20,8 @@ class InputTextField extends StatelessWidget {
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(FetchPixels.getPixelHeight(15))),
         ),
         obscureText: obscureText,
-
-        validator: validator
-        // (value) {
-        //   if (value == null || value.isEmpty) {
-        //     return AppTexts.fieldCantBeEmpty;
-        //   }
-        //   return null;
-        // }
+        controller: controller,
+        validator: validator,
         );
   }
 }

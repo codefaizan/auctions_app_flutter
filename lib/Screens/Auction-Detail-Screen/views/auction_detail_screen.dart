@@ -1,23 +1,19 @@
+import 'package:bidding_app/Models/Auction.dart';
 import 'package:bidding_app/Screens/Auction-Detail-Screen/widgets/bids_list_widget.dart';
 import 'package:bidding_app/Screens/Auction-Detail-Screen/widgets/wrap_text_widget.dart';
 import 'package:bidding_app/Screens/Messages-Screen/views/messages_screen.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/widgets/star_rating_widget.dart';
 import 'package:bidding_app/resources/app_images.dart';
-import 'package:bidding_app/constants/tConstants.dart';
-import 'package:bidding_app/constants/app_texts.dart';
-import 'package:bidding_app/widgets/theme-constants/theme.dart';
+import 'package:bidding_app/resources/app_texts.dart';
+import 'package:bidding_app/resources/theme.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
-class AuctionDetailScreen extends StatefulWidget {
-  const AuctionDetailScreen({super.key});
 
-  @override
-  State<AuctionDetailScreen> createState() => _AuctionDetailScreenState();
-}
-
-class _AuctionDetailScreenState extends State<AuctionDetailScreen> {
+class AuctionDetailScreen extends StatelessWidget {
+  AuctionDetailScreen({super.key, required this.auctionData});
+  final AuctionData auctionData;
   bool isFavourite = false;
 
   @override
@@ -39,48 +35,51 @@ class _AuctionDetailScreenState extends State<AuctionDetailScreen> {
       extendBodyBehindAppBar: true,
       body: Column(
         children: [
-          Container(
-            height: FetchPixels.getHeightPercentSize(40),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(
-                      'assets/images/auction-products/item_img_3.png'),
-                  fit: BoxFit.cover),
-            ),
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: FetchPixels.getPixelWidth(30), vertical: FetchPixels.getPixelHeight(2)),
-              width: FetchPixels.getWidthPercentSize(80),
-              height: FetchPixels.getHeightPercentSize(7.5),
-              decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(7),
-                      topRight: Radius.circular(7)),
-                  color: Colors.white),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      BoldTextWidget(
-                          text: '€720',
-                          fontSize: FetchPixels.getPixelHeight(19)),
-                      RegularTextWidget(text: AppTexts.currentBid)
-                    ],
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              SizedBox(height: FetchPixels.getHeightPercentSize(40),
+                  child: PageView(children: List.generate(auctionData.images.length, (index) => Image.asset(auctionData.images[index], fit: BoxFit.cover,))
+                  )),
+              Positioned(
+                bottom: -0,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: FetchPixels.getPixelWidth(30), vertical: FetchPixels.getPixelHeight(2)),
+                  width: FetchPixels.getWidthPercentSize(80),
+                  height: FetchPixels.getHeightPercentSize(7.5),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(7),
+                          topRight: Radius.circular(7)),
+                      color: Colors.white
                   ),
-                  Column(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      BoldTextWidget(
-                        text: '08:45:29',
-                        fontSize: FetchPixels.getPixelHeight(19),
+                      Column(
+                        children: [
+                          BoldTextWidget(
+                              text: '€720',
+                              fontSize: FetchPixels.getPixelHeight(19)),
+                          RegularTextWidget(text: AppTexts.currentBid)
+                        ],
                       ),
-                      RegularTextWidget(text: AppTexts.auctionEnds),
+                      Column(
+                        children: [
+                          BoldTextWidget(
+                            text: '08:45:29',
+                            fontSize: FetchPixels.getPixelHeight(19),
+                          ),
+                          RegularTextWidget(text: AppTexts.auctionEnds),
+                        ],
+                      ),
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
           Expanded(
             child: SingleChildScrollView(
@@ -93,7 +92,7 @@ class _AuctionDetailScreenState extends State<AuctionDetailScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     BoldTextWidget(
-                        text: 'KAWASAKI Ninja H2R',
+                        text: auctionData.title,
                         fontSize: FetchPixels.getPixelHeight(19)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -113,7 +112,7 @@ class _AuctionDetailScreenState extends State<AuctionDetailScreen> {
                                 padding: EdgeInsets.zero,
                                 onPressed: () {
                                   isFavourite = !isFavourite;
-                                  setState(() {});
+                                  // setState(() {});
                                 },
                                 icon: Icon(
                                   Icons.favorite,
@@ -125,9 +124,8 @@ class _AuctionDetailScreenState extends State<AuctionDetailScreen> {
                     SizedBox(height: FetchPixels.getPixelHeight(10)),
                     Divider(height: FetchPixels.getPixelHeight(10), color: Colors.grey),
                     BoldTextWidget(text: AppTexts.description, fontSize: FetchPixels.getPixelHeight(19)),
-                    const TextWrapWidget(
-                        text:
-                            'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum i'),
+                    TextWrapWidget(
+                        text: auctionData.desc),
                     SizedBox(
                       height: FetchPixels.getPixelHeight(15),
                     ),
@@ -137,7 +135,7 @@ class _AuctionDetailScreenState extends State<AuctionDetailScreen> {
                           children: [
                             BoldTextWidget(text: AppTexts.brand, fontSize: FetchPixels.getPixelHeight(19)),
                             RegularTextWidget(
-                              text: 'PUMA',
+                              text: auctionData.brand,
                               // fontSize: FetchPixels.getPixelHeight(18),
                             )
                           ],
@@ -146,7 +144,7 @@ class _AuctionDetailScreenState extends State<AuctionDetailScreen> {
                         Column(
                           children: [
                             BoldTextWidget(text: AppTexts.color, fontSize: FetchPixels.getPixelHeight(19)),
-                            RegularTextWidget(text: 'Blue',
+                            RegularTextWidget(text: auctionData.color,
                             // fontSize: FetchPixels.getPixelHeight(18)
                             ),
                           ],
@@ -164,25 +162,25 @@ class _AuctionDetailScreenState extends State<AuctionDetailScreen> {
                         children: [
                           Column(
                             children: [
-                              BoldTextWidget(text: 'New', fontSize: FetchPixels.getPixelHeight(19)),
+                              BoldTextWidget(text: auctionData.condition, fontSize: FetchPixels.getPixelHeight(19)),
                               RegularTextWidget(text: AppTexts.condition)
                             ],
                           ),
                           Column(
                             children: [
-                              BoldTextWidget(text: '2023', fontSize: FetchPixels.getPixelHeight(19)),
+                              BoldTextWidget(text: auctionData.year, fontSize: FetchPixels.getPixelHeight(19)),
                               RegularTextWidget(text: AppTexts.year)
                             ],
                           ),
                           Column(
                             children: [
-                              BoldTextWidget(text: 'Small', fontSize: FetchPixels.getPixelHeight(19)),
+                              BoldTextWidget(text: auctionData.size, fontSize: FetchPixels.getPixelHeight(19)),
                               RegularTextWidget(text: AppTexts.size)
                             ],
                           ),
                           Column(
                             children: [
-                              BoldTextWidget(text: '€720', fontSize: FetchPixels.getPixelHeight(19)),
+                              BoldTextWidget(text: auctionData.startingPrice, fontSize: FetchPixels.getPixelHeight(19)),
                               RegularTextWidget(text: AppTexts.startingPrice)
                             ],
                           ),

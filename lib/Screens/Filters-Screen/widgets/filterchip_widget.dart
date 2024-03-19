@@ -1,5 +1,5 @@
 import 'package:bidding_app/widgets/text_widget.dart';
-import 'package:bidding_app/widgets/theme-constants/theme.dart';
+import 'package:bidding_app/resources/theme.dart';
 import 'package:flutter/material.dart';
 
 class FilterChipWidget extends StatefulWidget {

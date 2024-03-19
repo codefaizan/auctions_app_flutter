@@ -1,4 +1,4 @@
-  import 'package:bidding_app/constants/app_texts.dart';
+  import 'package:bidding_app/resources/app_texts.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 

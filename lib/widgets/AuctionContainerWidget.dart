@@ -1,33 +1,31 @@
-import 'package:bidding_app/Models/Item.dart';
+import 'package:bidding_app/Models/Product.dart';
 import 'package:bidding_app/Screens/Auction-Detail-Screen/views/auction_detail_screen.dart';
-import 'package:bidding_app/Screens/Home-Screen/Providers/provider.dart';
 import 'package:bidding_app/Screens/Home-Screen/widgets/bid_bottom_sheet_widget.dart';
-import 'package:bidding_app/Screens/Product-Detail-Screen/views/Product_detail_screen.dart';
+import 'package:bidding_app/Screens/Product-Detail-Screen/views/product_detail_screen.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/constants/app_texts.dart';
-import 'package:bidding_app/widgets/theme-constants/theme.dart';
+import 'package:bidding_app/resources/app_texts.dart';
+import 'package:bidding_app/resources/theme.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-class CreateNewItem extends StatefulWidget {
-  final Item item;
+import '../Models/Auction.dart';
+
+class AuctionContainerWidget extends StatefulWidget {
+  final AuctionData auctionData;
   final int itemIndex;
-  final ItemCategories itemCategory;
   final dynamic context;
 
-  CreateNewItem(
+  AuctionContainerWidget(
       {super.key,
       required this.itemIndex,
-      required this.itemCategory,
       required this.context,
-      required this.item});
+      required this.auctionData});
 
   @override
-  State<CreateNewItem> createState() => _CreateNewItemState();
+  State<AuctionContainerWidget> createState() => _AuctionContainerWidgetState();
 }
 
-class _CreateNewItemState extends State<CreateNewItem> {
+class _AuctionContainerWidgetState extends State<AuctionContainerWidget> {
   bool? isFavourite;
 
   @override
@@ -36,11 +34,9 @@ class _CreateNewItemState extends State<CreateNewItem> {
       onTap: () => Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => widget.itemCategory == ItemCategories.auctions
-                  ? const AuctionDetailScreen()
-                  : const ProductDetailScreen())),
+              builder: (context) => AuctionDetailScreen(auctionData: widget.auctionData,))),
       child: Container(
-        width: FetchPixels.getPixelWidth(190),
+        width: FetchPixels.getPixelWidth(230),
         padding: EdgeInsets.all(FetchPixels.getPixelHeight(7)),
         decoration: BoxDecoration(
             border: Border.all(color: const Color.fromARGB(255, 202, 200, 200)),
@@ -55,7 +51,7 @@ class _CreateNewItemState extends State<CreateNewItem> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
-                      image: AssetImage(widget.item.itemImg),
+                      image: AssetImage(widget.auctionData.images[0]),
                       fit: BoxFit.cover,
                     )),
                 child: Align(
@@ -88,11 +84,9 @@ class _CreateNewItemState extends State<CreateNewItem> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 BoldTextWidget(
-                    text: widget.item.itemName,
+                    text: widget.auctionData.title,
                     fontSize: FetchPixels.getPixelHeight(17)),
-                (widget.itemCategory == ItemCategories.auctions)
-                    ? RegularTextWidget(text: '08:45:29')
-                    : RegularTextWidget(text: '')
+                RegularTextWidget(text: '08:45:29')
               ],
             ),
             Row(
@@ -101,33 +95,23 @@ class _CreateNewItemState extends State<CreateNewItem> {
                 Flexible(
                     fit: FlexFit.loose,
                     child: RegularTextWidget(
-                      text: widget.item.itemDesc,
+                      text: widget.auctionData.desc,
                       overFlow: TextOverflow.fade,
                       maxLines: 2,
                     )),
                 BoldTextWidget(
-                    text: widget.item.itemPrice,
+                    text: widget.auctionData.startingPrice,
                     fontSize: FetchPixels.getPixelHeight(16))
               ],
             ),
             ElevatedButton(
                 onPressed: () {
-                  widget.itemCategory == ItemCategories.auctions
-                      ? displayBottomSheet(context)
-                      : Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const ProductDetailScreen()));
+                  displayBottomSheet(context);
                 },
-                child: (widget.itemCategory == ItemCategories.auctions)
-                    ? BoldTextWidget(text: AppTexts.placeBid)
-                    : BoldTextWidget(text: AppTexts.buyNow))
+                child: BoldTextWidget(text: AppTexts.placeBid))
           ],
         ),
       ),
     );
   }
 }
-
-enum ItemCategories { auctions, products }

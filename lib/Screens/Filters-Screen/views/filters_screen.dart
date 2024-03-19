@@ -2,7 +2,7 @@ import 'package:bidding_app/Screens/Filters-Screen/widgets/checkbox_tile_widget.
 import 'package:bidding_app/Screens/Filters-Screen/widgets/colorbox_widget.dart';
 import 'package:bidding_app/Screens/Filters-Screen/widgets/filterchip_widget.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/constants/app_texts.dart';
+import 'package:bidding_app/resources/app_texts.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/constants/app_texts.dart';
+import 'package:bidding_app/resources/app_texts.dart';
 import 'package:flutter/material.dart';
 
 class ProductForm extends StatelessWidget {
