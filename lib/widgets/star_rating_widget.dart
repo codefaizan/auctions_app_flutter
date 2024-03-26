@@ -1,6 +1,8 @@
-import 'package:bidding_app/resources/theme.dart';
+import 'package:bidding_app/base/resources/theme.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../base/resources/resources.dart';
 
 class StarsRatingWidget extends StatelessWidget {
   final int rating;
@@ -15,7 +17,7 @@ class StarsRatingWidget extends StatelessWidget {
     for (var i = 0; i < 5; i++) {
       starsList.add(Icon(
         Icons.star,
-        color: (i<rating)?defaultThemeColor:Colors.grey));
+        color: (i<rating)?R.colors.theme:R.colors.borderColor));
     }
     starsList.add(RegularTextWidget(text: '  $rating', fontSize: 17));
     return Row(children: starsList,);

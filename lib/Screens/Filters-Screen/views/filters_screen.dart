@@ -2,9 +2,11 @@ import 'package:bidding_app/Screens/Filters-Screen/widgets/checkbox_tile_widget.
 import 'package:bidding_app/Screens/Filters-Screen/widgets/colorbox_widget.dart';
 import 'package:bidding_app/Screens/Filters-Screen/widgets/filterchip_widget.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../base/resources/resources.dart';
 
 class FiltersScreen extends StatefulWidget {
   const FiltersScreen({super.key});
@@ -15,6 +17,7 @@ class FiltersScreen extends StatefulWidget {
 
 class _FiltersScreenState extends State<FiltersScreen> {
   RangeValues _rangeValues = const RangeValues(1, 1000);
+  int selectedFilterIndex=-1;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +52,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                     divisions: 1000,
                     min: 0,
                     max: 1000,
-                    activeColor: const Color.fromARGB(255, 226, 133, 2),
+                    activeColor:  R.colors.theme,
                     onChanged: (newValue) {
                       _rangeValues = newValue;
                       setState(() {});
@@ -58,57 +61,65 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   text: AppTexts.categories,
                   fontSize: FetchPixels.getPixelHeight(20)
                 ),
-                SizedBox(
-                  height: FetchPixels.getHeightPercentSize(25),
-                  child: GridView.count(
+                GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                    physics: const NeverScrollableScrollPhysics(),
-                    mainAxisSpacing: FetchPixels.getPixelHeight(7),
-                    crossAxisSpacing: FetchPixels.getPixelWidth(7),
-                    padding: EdgeInsets.zero,
-                     childAspectRatio: FetchPixels.getPixelHeight(3),
-                    children: const [
-                      FilterChipWidget(chipName: AppTexts.automobile),
-                      FilterChipWidget(chipName: AppTexts.books),
-                      FilterChipWidget(chipName: AppTexts.comics),
-                      FilterChipWidget(chipName: AppTexts.decorations),
-                      FilterChipWidget(chipName: AppTexts.family),
-                      FilterChipWidget(chipName: AppTexts.leisure),
-                      FilterChipWidget(chipName: AppTexts.film),
-                      FilterChipWidget(chipName: AppTexts.garden),
-                      FilterChipWidget(chipName: AppTexts.house),
-                      FilterChipWidget(chipName: AppTexts.musicCD),
-                      FilterChipWidget(chipName: AppTexts.houseWork),
-                    ],
+                    crossAxisSpacing: FetchPixels.getPixelWidth(5),
+                    mainAxisSpacing: FetchPixels.getPixelHeight(5),
+                    childAspectRatio: FetchPixels.getPixelHeight(4),
                   ),
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    return
+                      OutlinedButton(
+                          onPressed: (){
+                            selectedFilterIndex = index;
+                            setState(() {});
+                          },
+                          child: RegularTextWidget(text: categories[index],),
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: (selectedFilterIndex == index)?Colors.white:Colors.black,
+                            backgroundColor: (selectedFilterIndex == index)?R.colors.theme:Colors.white,
+                            padding: EdgeInsets.zero,
+                            side: BorderSide(color: (selectedFilterIndex == index)?R.colors.theme:R.colors.greyColor),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                          ),
+                      );
+                  },
+
                 ),
-                BoldTextWidget(
-                  text: AppTexts.brands,
-                  fontSize: FetchPixels.getPixelHeight(20)
-                ),
-                const Column(children: [
-                  CheckboxTileWidget(checkboxTitle: 'ZARA',),
-                  CheckboxTileWidget(checkboxTitle: 'GUCCI',),
-                  CheckboxTileWidget(checkboxTitle: 'PUMA',),
-                ],),
-                
-                BoldTextWidget(
-                  text: AppTexts.colors,
-                  fontSize: FetchPixels.getPixelHeight(20)
-                ),
-                Wrap(
-                  runSpacing: FetchPixels.getPixelHeight(5),
-                  spacing: FetchPixels.getPixelWidth(5),
-                  // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ColorBoxWidget(color: Color(0xFFd9d9d9)),
-                    ColorBoxWidget(color: Color(0xFF000000)),
-                    ColorBoxWidget(color: Color(0xFFed0006)),
-                    ColorBoxWidget(color: Color(0xFF14b11a)),
-                    ColorBoxWidget(color: Color(0xFF009cde)),
-                    ColorBoxWidget(color: Color(0xFF003087)),
-                  ],
-                ),
+
+                // BoldTextWidget(
+                //   text: AppTexts.brands,
+                //   fontSize: FetchPixels.getPixelHeight(20)
+                // ),
+                // const Column(children: [
+                //   CheckboxTileWidget(checkboxTitle: 'ZARA',),
+                //   CheckboxTileWidget(checkboxTitle: 'GUCCI',),
+                //   CheckboxTileWidget(checkboxTitle: 'PUMA',),
+                // ],),
+                //
+                // BoldTextWidget(
+                //   text: AppTexts.colors,
+                //   fontSize: FetchPixels.getPixelHeight(20)
+                // ),
+                // Wrap(
+                //   runSpacing: FetchPixels.getPixelHeight(5),
+                //   spacing: FetchPixels.getPixelWidth(5),
+                //   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children: [
+                //     ColorBoxWidget(color: Color(0xFFd9d9d9)),
+                //     ColorBoxWidget(color: Color(0xFF000000)),
+                //     ColorBoxWidget(color: Color(0xFFed0006)),
+                //     ColorBoxWidget(color: Color(0xFF14b11a)),
+                //     ColorBoxWidget(color: Color(0xFF009cde)),
+                //     ColorBoxWidget(color: Color(0xFF003087)),
+                //   ],
+                // ),
               ],
             ),
           ),
@@ -121,3 +132,19 @@ class _FiltersScreenState extends State<FiltersScreen> {
     );
   }
 }
+
+List<String> categories = [
+  'Automobile',
+  'Books',
+  'Comics',
+  'Decorations',
+  'Family',
+  'Leisure',
+  'Film',
+  'Garden',
+  'House',
+  'Music CD',
+  'House Work',
+];
+
+

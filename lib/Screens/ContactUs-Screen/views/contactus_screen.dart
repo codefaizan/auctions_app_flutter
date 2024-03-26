@@ -1,8 +1,9 @@
 import 'package:bidding_app/widgets/Success%20Dialog%20Popup/success_dialog_popup.dart';
-import 'package:bidding_app/resources/app_texts.dart';
-import 'package:bidding_app/resources/theme.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../base/resources/resources.dart';
 
 class ContactUsScreen extends StatelessWidget {
   TextEditingController controller = TextEditingController();
@@ -22,15 +23,15 @@ class ContactUsScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: Form(
-            child: Column(
+            child: ListView(
           children: [
             TextFormField(
               controller: controller..text = 'Hauptsache-Platz@help.com',
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                  color: defaultThemeColor,
+              style: TextStyle(
+                  color: R.colors.theme,
                   decoration: TextDecoration.underline,
-                  decorationColor: defaultThemeColor),
+                  decorationColor: R.colors.theme),
               readOnly: true,
               decoration: const InputDecoration(
                 hintText: AppTexts.emailTo,
@@ -56,8 +57,8 @@ class ContactUsScreen extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: defaultThemeColor,
+                foregroundColor: R.colors.whiteColor,
+                backgroundColor: R.colors.theme,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15)),
               ),

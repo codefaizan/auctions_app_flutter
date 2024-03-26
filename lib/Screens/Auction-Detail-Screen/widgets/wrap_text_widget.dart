@@ -1,8 +1,10 @@
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/resources/app_texts.dart';
-import 'package:bidding_app/resources/theme.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/theme.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../base/resources/resources.dart';
 
 class TextWrapWidget extends StatefulWidget {
   final String text;
@@ -48,7 +50,7 @@ class _TextWrapWidgetState extends State<TextWrapWidget> {
               
             });
           },
-          child: RegularTextWidget(text: AppTexts.readMore, color: defaultThemeColor),),
+          child: RegularTextWidget(text: AppTexts.readMore, color: R.colors.theme),),
       ],
     )
     :
@@ -63,7 +65,7 @@ class _TextWrapWidgetState extends State<TextWrapWidget> {
               
             });
           },
-          child: RegularTextWidget(text: AppTexts.showLess, color: defaultThemeColor,)),
+          child: RegularTextWidget(text: AppTexts.showLess, color: R.colors.theme,)),
       ],
     );
 

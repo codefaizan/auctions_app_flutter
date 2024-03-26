@@ -1,4 +1,7 @@
-  import 'package:bidding_app/resources/app_texts.dart';
+  import 'package:bidding_app/base/resizer/fetch_pixels.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
+import 'package:bidding_app/base/widget_utils.dart';
+import 'package:bidding_app/widgets/text_field_widget.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +22,7 @@ class BSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final MediaQueryData mediaQueryData = MediaQuery.of(context);
     return Container(
-          padding: EdgeInsets.only(left: 20,right: 20,bottom: mediaQueryData.viewInsets.bottom),
+          padding: EdgeInsets.only(left: FetchPixels.getPixelWidth(20),right: FetchPixels.getPixelWidth(20),bottom: mediaQueryData.viewInsets.bottom, top: FetchPixels.getPixelHeight(10)),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -27,37 +30,33 @@ class BSheet extends StatelessWidget {
               Center(
                   child: BoldTextWidget(
                 text: AppTexts.placeYourBid,
-                fontSize: 20)
+                fontSize: FetchPixels.getPixelHeight(21))
               ),
-              SizedBox(height: 10,),
+              getVerSpace(FetchPixels.getPixelHeight(10)),
               RegularTextWidget(
                 text: AppTexts.writeYourBidPrice,
-                fontSize: 15
+                fontSize: FetchPixels.getPixelHeight(15)
               ),
-              SizedBox(height: 10,),
-              const SizedBox(
-                height: 50,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: AppTexts.price,
-                  ),
-                ),
-              ),
-              SizedBox(height: 10,),
-              const SizedBox(
-                height: 50,
-                child: TextField(
-                  decoration: InputDecoration(hintText: AppTexts.description),
-                ),
-              ),
-              SizedBox(height: 10,),
+              getVerSpace(FetchPixels.getPixelHeight(10)),
+              TextFieldWidget(hintText: AppTexts.price,),
+              // TextField(
+              //   decoration: InputDecoration(
+              //     hintText: AppTexts.price,
+              //   ),
+              // ),
+              getVerSpace(FetchPixels.getPixelHeight(10)),
+              TextFieldWidget(hintText: AppTexts.description,),
+              // TextField(
+              //   decoration: InputDecoration(hintText: AppTexts.description),
+              // ),
+              getVerSpace(FetchPixels.getPixelHeight(10)),
               ElevatedButton(
                 onPressed: () {},
                 child: BoldTextWidget(
                   text: AppTexts.placeBid,
                 ),
               ),
-              SizedBox(height: 20,)
+              getVerSpace(FetchPixels.getPixelHeight(20)),
             ],
           ),
         );

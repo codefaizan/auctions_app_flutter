@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../resources/resources.dart';
+import 'resources.dart';
 
 class AppTextStyle {
   ///textstyles///

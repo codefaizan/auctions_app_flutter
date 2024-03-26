@@ -1,8 +1,9 @@
 import 'package:bidding_app/Screens/Auth/Providers/provider.dart';
-import 'package:bidding_app/Screens/Auth/Signup-Screen/widgets/input_text_field_widget.dart';
+import 'package:bidding_app/base/widget_utils.dart';
+import 'package:bidding_app/widgets/form_field_widget.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/resources/app_images.dart';
-import 'package:bidding_app/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/app_images.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
 import 'package:bidding_app/widgets/Bottom-Nav-Bar/bottom_nav_bar.dart';
 import 'package:bidding_app/Screens/Auth/Login-Screen/views/login_screen.dart';
 import 'package:bidding_app/widgets/Success%20Dialog%20Popup/success_dialog_popup.dart';
@@ -12,9 +13,18 @@ import 'package:provider/provider.dart';
 
 final _formKey = GlobalKey<FormState>();
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
 
-  const SignupScreen({super.key});
+  SignupScreen({super.key});
+
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  final TextEditingController passwordController = TextEditingController();
+
+  final TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +42,7 @@ class SignupScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
+                      getAssetImage(
                         AppImages.logo,
                         height: FetchPixels.getPixelHeight(45),
                       ),
@@ -51,29 +61,31 @@ class SignupScreen extends StatelessWidget {
                       key: _formKey,
                       child: Column(
                         children: [
-                          InputTextField(
+                          FormFieldWidget(
                             titleLabel: AppTexts.name,
                             validator: (value) => provider.validateEmptyField(value),
                           ),
                           SizedBox(
                             height: FetchPixels.getPixelHeight(15),
                           ),
-                          InputTextField(
+                          FormFieldWidget(
+                            KeyboardType: TextInputType.emailAddress,
                             titleLabel: AppTexts.email,
                             validator: (value) => provider.validateEmail(value),
                           ),
                           SizedBox(
                             height: FetchPixels.getPixelHeight(15),
                           ),
-                          InputTextField(
+                          FormFieldWidget(
+                            KeyboardType: TextInputType.phone,
                             titleLabel: AppTexts.phNumber,
                             validator: (value) => provider.validatePhoneNumber(value),
                           ),
                           SizedBox(
                             height: FetchPixels.getPixelHeight(15),
                           ),
-                          InputTextField(
-
+                          FormFieldWidget(
+                            KeyboardType: TextInputType.visiblePassword,
                             titleLabel: AppTexts.password,
                             obscureText: provider.obscureTextPasswordSignup,
                             suffix: IconButton(
@@ -83,15 +95,16 @@ class SignupScreen extends StatelessWidget {
                                     ? Icons.visibility
                                     : Icons.visibility_off)),
                             validator: (value) => provider.validatePasswordStrength(value),
-                            controller: provider.passwordController,
+                            controller: passwordController,
                           ),
                           SizedBox(
                             height: FetchPixels.getPixelHeight(15),
                           ),
-                          InputTextField(
+                          FormFieldWidget(
+                            KeyboardType: TextInputType.visiblePassword,
                             titleLabel: AppTexts.confirmPassword,
-                            validator: (value) => provider.validateMatchPassword(value),
-                            controller: provider.confirmPasswordController,
+                            validator: (value) => provider.validateMatchPassword(value, passwordController, confirmPasswordController),
+                            controller: confirmPasswordController,
                             obscureText:
                                 provider.obscureTextConfirmPasswordSignup,
                             suffix: IconButton(
@@ -120,7 +133,6 @@ class SignupScreen extends StatelessWidget {
                                                 const BottomBar()),
                                         (route) => false,
                                       );
-                                      Navigator.pop(context);
                                     });
                                     return SuccessPopup(
                                         title: AppTexts.congratulations,
@@ -146,8 +158,8 @@ class SignupScreen extends StatelessWidget {
                   SizedBox(height: FetchPixels.getPixelHeight(15)),
                   OutlinedButton(
                     onPressed: () {
-                      provider.passwordController.clear();
-                      provider.confirmPasswordController.clear();
+                      passwordController.clear();
+                      confirmPasswordController.clear();
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(

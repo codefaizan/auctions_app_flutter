@@ -2,11 +2,14 @@ import 'package:bidding_app/Models/Auction.dart';
 import 'package:bidding_app/Models/Product.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/widgets/AuctionContainerWidget.dart';
-import 'package:bidding_app/resources/app_texts.dart';
-import 'package:bidding_app/resources/theme.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/theme.dart';
 import 'package:bidding_app/widgets/ProductContainerWidget.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../base/resources/resources.dart';
 
 class NonEmptyWishlistScreen extends StatefulWidget {
   NonEmptyWishlistScreen({super.key});
@@ -38,7 +41,7 @@ class _NonEmptyWishlistScreenState extends State<NonEmptyWishlistScreen> {
               
                 indicator: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: defaultThemeColor,
+                  color: R.colors.theme,
                 ),
                 indicatorSize: TabBarIndicatorSize.label,
                 padding: const EdgeInsets.symmetric(vertical: 10),

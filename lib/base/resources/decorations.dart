@@ -1,4 +1,4 @@
-import 'package:bidding_app/resources/resources.dart';
+import 'package:bidding_app/base/resources/resources.dart';
 import 'package:flutter/material.dart';
 
 class AppDecorations {

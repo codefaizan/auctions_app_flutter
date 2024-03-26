@@ -3,12 +3,14 @@ import 'package:bidding_app/Screens/Auction-Detail-Screen/views/auction_detail_s
 import 'package:bidding_app/Screens/Home-Screen/widgets/bid_bottom_sheet_widget.dart';
 import 'package:bidding_app/Screens/Product-Detail-Screen/views/product_detail_screen.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/resources/app_texts.dart';
-import 'package:bidding_app/resources/theme.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/theme.dart';
+import 'package:bidding_app/base/widget_utils.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../Models/Auction.dart';
+import '../base/resources/resources.dart';
 
 class AuctionContainerWidget extends StatefulWidget {
   final AuctionData auctionData;
@@ -61,7 +63,7 @@ class _AuctionContainerWidgetState extends State<AuctionContainerWidget> {
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: isFavourite == true
-                            ? defaultThemeColor
+                            ? R.colors.theme
                             : Colors.black),
                     child: IconButton(
                         color: Colors.white,
@@ -81,16 +83,16 @@ class _AuctionContainerWidgetState extends State<AuctionContainerWidget> {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 BoldTextWidget(
                     text: widget.auctionData.title,
-                    fontSize: FetchPixels.getPixelHeight(17)),
+                    fontSize: FetchPixels.getPixelHeight(15)),
                 RegularTextWidget(text: '08:45:29')
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
                     fit: FlexFit.loose,
@@ -99,9 +101,10 @@ class _AuctionContainerWidgetState extends State<AuctionContainerWidget> {
                       overFlow: TextOverflow.fade,
                       maxLines: 2,
                     )),
+                getHorSpace(FetchPixels.getPixelWidth(5)),
                 BoldTextWidget(
                     text: widget.auctionData.startingPrice,
-                    fontSize: FetchPixels.getPixelHeight(16))
+                    fontSize: FetchPixels.getPixelHeight(15))
               ],
             ),
             ElevatedButton(

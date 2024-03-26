@@ -1,8 +1,10 @@
 import 'package:bidding_app/Models/Notification.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../base/resources/resources.dart';
 
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
@@ -31,7 +33,7 @@ class NotificationsScreen extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                        color: const Color(0xFFECECEC),
+                        color: R.colors.bgColor,
                         borderRadius: BorderRadius.circular(15)),
                     child: ListTile(
                       title: RegularTextWidget(
@@ -44,7 +46,7 @@ class NotificationsScreen extends StatelessWidget {
                   SizedBox(height: FetchPixels.getPixelHeight(17)),
                   Container(
                     decoration: BoxDecoration(
-                        color: const Color(0xFFECECEC),
+                        color: R.colors.bgColor,
                         borderRadius: BorderRadius.circular(15)),
                     child: ListTile(
                       title: RegularTextWidget(
@@ -60,7 +62,7 @@ class NotificationsScreen extends StatelessWidget {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                        color: const Color(0xFFECECEC),
+                        color: R.colors.bgColor,
                         borderRadius: BorderRadius.circular(15)),
                     child: ListTile(
                       title: RegularTextWidget(
@@ -73,7 +75,7 @@ class NotificationsScreen extends StatelessWidget {
                   SizedBox(height: FetchPixels.getPixelHeight(17)),
                   Container(
                     decoration: BoxDecoration(
-                        color: const Color(0xFFECECEC),
+                        color: R.colors.bgColor,
                         borderRadius: BorderRadius.circular(15)),
                     child: ListTile(
                       title: RegularTextWidget(

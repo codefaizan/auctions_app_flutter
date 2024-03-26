@@ -1,23 +1,29 @@
 import 'package:bidding_app/Models/Auction.dart';
+import 'package:bidding_app/Screens/Auction-Detail-Screen/providers/provider.dart';
 import 'package:bidding_app/Screens/Auction-Detail-Screen/widgets/bids_list_widget.dart';
 import 'package:bidding_app/Screens/Auction-Detail-Screen/widgets/wrap_text_widget.dart';
 import 'package:bidding_app/Screens/Messages-Screen/views/messages_screen.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/widgets/star_rating_widget.dart';
-import 'package:bidding_app/resources/app_images.dart';
-import 'package:bidding_app/resources/app_texts.dart';
-import 'package:bidding_app/resources/theme.dart';
+import 'package:bidding_app/base/resources/app_images.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/theme.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../base/resources/resources.dart';
 
 
 class AuctionDetailScreen extends StatelessWidget {
   AuctionDetailScreen({super.key, required this.auctionData});
   final AuctionData auctionData;
-  bool isFavourite = false;
 
   @override
   Widget build(BuildContext context) {
+    return Consumer<AuctionDetailProvider>(builder: (context, value, child) {
+
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -36,23 +42,23 @@ class AuctionDetailScreen extends StatelessWidget {
       body: Column(
         children: [
           Stack(
-            alignment: Alignment.center,
             children: [
-              SizedBox(height: FetchPixels.getHeightPercentSize(40),
+              SizedBox(
+                  height: FetchPixels.getHeightPercentSize(40),
                   child: PageView(children: List.generate(auctionData.images.length, (index) => Image.asset(auctionData.images[index], fit: BoxFit.cover,))
                   )),
-              Positioned(
-                bottom: -0,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Container(
+                  margin: EdgeInsets.only(top: FetchPixels.getPixelHeight(310)),
                   padding: EdgeInsets.symmetric(horizontal: FetchPixels.getPixelWidth(30), vertical: FetchPixels.getPixelHeight(2)),
-                  width: FetchPixels.getWidthPercentSize(80),
+                  // width: FetchPixels.getWidthPercentSize(80),
                   height: FetchPixels.getHeightPercentSize(7.5),
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(7),
-                          topRight: Radius.circular(7)),
-                      color: Colors.white
+                    boxShadow: [BoxShadow(blurRadius: 1)],
+                    border: Border.all(color: R.colors.greyColor),
+                      borderRadius: BorderRadius.circular(7),
+                      color: R.colors.whiteColor
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,24 +111,23 @@ class AuctionDetailScreen extends StatelessWidget {
                             width: FetchPixels.getPixelWidth(40),
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: (isFavourite)
-                                    ? defaultThemeColor
-                                    : Colors.black),
+                                color: (value.isFavourite)
+                                    ? R.colors.theme
+                                    : R.colors.borderColor),
                             child: IconButton(
                                 padding: EdgeInsets.zero,
                                 onPressed: () {
-                                  isFavourite = !isFavourite;
-                                  // setState(() {});
+                                  value.toggleFavourite();
                                 },
                                 icon: Icon(
                                   Icons.favorite,
                                   size: FetchPixels.getPixelHeight(25),
-                                  color: Colors.white,
+                                  color: R.colors.whiteColor,
                                 )))
                       ],
                     ),
                     SizedBox(height: FetchPixels.getPixelHeight(10)),
-                    Divider(height: FetchPixels.getPixelHeight(10), color: Colors.grey),
+                    Divider(height: FetchPixels.getPixelHeight(10), color: R.colors.greyColor),
                     BoldTextWidget(text: AppTexts.description, fontSize: FetchPixels.getPixelHeight(19)),
                     TextWrapWidget(
                         text: auctionData.desc),
@@ -155,7 +160,7 @@ class AuctionDetailScreen extends StatelessWidget {
                       margin: EdgeInsets.symmetric(vertical: FetchPixels.getPixelHeight(15)),
                       padding: EdgeInsets.all(FetchPixels.getPixelHeight(8)),
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
+                          border: Border.all(color: R.colors.greyColor),
                           borderRadius: BorderRadius.circular(12)),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -212,5 +217,6 @@ class AuctionDetailScreen extends StatelessWidget {
               onPressed: () {},
               child: BoldTextWidget(text: AppTexts.placeBid))),
     );
+    },);
   }
 }

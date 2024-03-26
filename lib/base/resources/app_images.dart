@@ -17,6 +17,9 @@ static const String attachmentIcon = '${iconsPath}attachment_icon.png';
 static const String sendIcon = '${iconsPath}send_icon.png';
 static const String paypalIcon = '${iconsPath}paypal.png';
 static const String productsIcon = '${iconsPath}products_icon.png';
+static const String chatsIcon = '${iconsPath}chat_icon.png';
+static const String addIcon = '${iconsPath}add_icon.png';
+
 //   --profile
 static const String productsBtnIcon = '${iconsPath}products_btn_icon.png';
 static const String bidIcon = '${iconsPath}bid_icon.png';

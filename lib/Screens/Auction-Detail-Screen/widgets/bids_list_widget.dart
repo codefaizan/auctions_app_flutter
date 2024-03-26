@@ -2,6 +2,8 @@ import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../../base/resources/resources.dart';
+
 class BidsListWidget extends StatelessWidget {
   const BidsListWidget({
     super.key,
@@ -12,7 +14,7 @@ class BidsListWidget extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: FetchPixels.getPixelHeight(10)),
       decoration: BoxDecoration(
-      border: Border.all(color: Colors.grey),
+      border: Border.all(color: R.colors.greyColor),
       borderRadius: BorderRadius.circular(12)
     ),
       child: ListTile(

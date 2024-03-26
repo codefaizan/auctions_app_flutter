@@ -1,14 +1,18 @@
 import 'package:bidding_app/Models/Product.dart';
 import 'package:bidding_app/Screens/Messages-Screen/views/messages_screen.dart';
+import 'package:bidding_app/Screens/My-Products-Screen/providers/provider.dart';
 import 'package:bidding_app/Screens/Payment-Screen/views/payment_screen.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/base/widget_utils.dart';
-import 'package:bidding_app/resources/app_images.dart';
+import 'package:bidding_app/base/resources/app_images.dart';
 import 'package:bidding_app/widgets/star_rating_widget.dart';
-import 'package:bidding_app/resources/app_texts.dart';
-import 'package:bidding_app/resources/theme.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/theme.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../base/resources/resources.dart';
 
 // class ProductDetailScreen extends StatefulWidget{
 //
@@ -19,10 +23,12 @@ import 'package:flutter/material.dart';
 class ProductDetailScreen extends StatelessWidget {
   ProductDetailScreen({super.key, required this.productData});
   final ProductData productData;
-  bool isFavourite = false;
 
   @override
   Widget build(BuildContext context) {
+    return Consumer<productDetailProvider>(builder: (context, value, child) {
+
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -67,17 +73,17 @@ class ProductDetailScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color:
-                              (isFavourite) ? defaultThemeColor : Colors.black),
+                              (value.isFavourite) ? R.colors.theme : R.colors.blackColor),
                       child: IconButton(
                           padding: EdgeInsets.zero,
                           onPressed: () {
-                            isFavourite = !isFavourite;
+                            value.toggleFavourite();
                             // setState(() {});
                           },
                           icon: Icon(
                             Icons.favorite,
                             size: FetchPixels.getPixelHeight(25),
-                            color: Colors.white,
+                            color: R.colors.whiteColor,
                           )))
                 ],
               ),
@@ -140,5 +146,6 @@ class ProductDetailScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => PaymentScreen())),
               child: BoldTextWidget(text: AppTexts.buyNow))),
     );
+    },);
   }
 }

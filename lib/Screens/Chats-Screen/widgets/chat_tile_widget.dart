@@ -4,6 +4,8 @@ import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../../base/resources/resources.dart';
+
 class ChatTileWidget extends StatelessWidget {
   final ChatOverview chat;
 
@@ -14,7 +16,7 @@ class ChatTileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
+        border: Border.all(color: R.colors.greyColor),
         borderRadius: BorderRadius.circular(15)
       ),
       child: ListTile(
@@ -31,16 +33,16 @@ class ChatTileWidget extends StatelessWidget {
           children: [
             (chat.hasNewMessage)?
             Container(
-                decoration: const BoxDecoration(
-                    shape: BoxShape.circle, color: Colors.black),
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle, color: R.colors.blackColor),
                 child: Padding(
                     padding: EdgeInsets.all(8),
-                    child: RegularTextWidget(text: '1', color: Colors.white,)
+                    child: RegularTextWidget(text: '1', color: R.colors.whiteColor,)
                     )
                     ) : const Spacer(),
              RegularTextWidget(
               text: '02:00pm',
-              color: Colors.grey,
+              color: R.colors.greyColor,
             )
           ],
         ),

@@ -51,6 +51,7 @@ static const String addNow='Add Now';
 
 static const String bids='Bids';
 static const String profile='Profile';
+static const String editProfile='Edit Profile';
 static const String chats='Chats';
 static const String addProducts='Add Products';
 static const String settings='SETTINGS';

@@ -9,6 +9,7 @@ class ProductData{
   String brand;
   String color;
   int rating;
+  bool isOwner;
 
 
   ProductData({
@@ -18,12 +19,14 @@ class ProductData{
     required this.price,
     required this.brand,
     required this.color,
-    required this.rating
+    required this.rating,
+    required this.isOwner
   });
 
  
 
 }
+List<String> names = [];
 
  List<ProductData> demoProductsList = [
     ProductData(title: 'Product1', desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum i", price: "\$200",
@@ -31,19 +34,18 @@ class ProductData{
           "assets/images/auction-products/item_img_1.png",
           "assets/images/auction-products/item_img_1.png"
         ],
-        brand: 'PUMA', color: 'Blue', rating: 3),
-
+        brand: 'PUMA', color: 'Blue', rating: 3, isOwner: true),
     ProductData(title: 'Product2', desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum i", price: "\$300",
         images: [
           "assets/images/auction-products/item_img_2.png",
           "assets/images/auction-products/item_img_2.png"
         ],
-        brand: 'GUCCI', color: 'Green', rating: 4),
+        brand: 'GUCCI', color: 'Green', rating: 4, isOwner: true),
 
     ProductData(title: 'Product3', desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum i", price: "\$50",
         images: [
           "assets/images/auction-products/item_img_1.png",
           "assets/images/auction-products/item_img_1.png"
         ],
-        brand: 'Zara', color: 'Black', rating: 2)
+        brand: 'Zara', color: 'Black', rating: 2, isOwner: false),
   ];

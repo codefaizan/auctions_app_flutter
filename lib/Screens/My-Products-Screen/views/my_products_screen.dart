@@ -1,7 +1,8 @@
+import 'package:bidding_app/Models/Product.dart';
 import 'package:bidding_app/Screens/New-Product-Screen/views/new_product_screen.dart';
 import 'package:bidding_app/Screens/My-Products-Screen/widgets/my_product_item_widget..dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,7 @@ class MyProductsScreen extends StatelessWidget {
             mainAxisSpacing: FetchPixels.getPixelHeight(12),
             mainAxisExtent: FetchPixels.getPixelHeight(250)),
         itemBuilder: (context, index) {
-          return MyProductItemWidget();
+          return MyProductItemWidget(productData: demoProductsList[index],);
         },
       ),
       floatingActionButton: FloatingActionButton(

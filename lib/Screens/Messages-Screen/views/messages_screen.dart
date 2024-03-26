@@ -1,9 +1,11 @@
 import 'package:bidding_app/Models/ChatMessage.dart';
 import 'package:bidding_app/Screens/Messages-Screen/widgets/message_widget.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/resources/app_images.dart';
+import 'package:bidding_app/base/resources/app_images.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../base/resources/resources.dart';
 
 class MessagesScreen extends StatefulWidget {
   const MessagesScreen({super.key});
@@ -87,7 +89,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
     return Container(
               margin: EdgeInsets.all(FetchPixels.getPixelHeight(8)),
               decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromARGB(255, 176, 175, 175)),
+                  border: Border.all(color: R.colors.greyColor),
                   borderRadius: BorderRadius.circular(15)),
               height: FetchPixels.getHeightPercentSize(7),
               child: SafeArea(

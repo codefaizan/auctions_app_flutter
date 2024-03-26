@@ -1,6 +1,8 @@
 import 'package:bidding_app/Screens/Chats-Screen/demoItems.dart';
 import 'package:flutter/material.dart';
 
+import '../../../base/resources/resources.dart';
+
 Widget dismiss_widget(BuildContext context, Widget child, int tileIndex){
   return Dismissible(
       key: UniqueKey(),
@@ -27,7 +29,7 @@ Widget dismiss_widget(BuildContext context, Widget child, int tileIndex){
     background: ColoredBox(color: Colors.redAccent,
         child: Align(alignment: Alignment.centerRight,
             child: Padding(padding: EdgeInsets.only(right: 20),
-                child: Icon(Icons.delete, color: Colors.white,)))),
+                child: Icon(Icons.delete, color: R.colors.whiteColor,)))),
     child: child
   );
 }

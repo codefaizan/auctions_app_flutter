@@ -1,10 +1,11 @@
 import 'package:bidding_app/Screens/Auth/Providers/provider.dart';
-import 'package:bidding_app/Screens/Auth/Signup-Screen/widgets/input_text_field_widget.dart';
+import 'package:bidding_app/base/widget_utils.dart';
+import 'package:bidding_app/widgets/form_field_widget.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/resources/app_images.dart';
-import 'package:bidding_app/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/app_images.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
 import 'package:bidding_app/widgets/Bottom-Nav-Bar/bottom_nav_bar.dart';
-import 'package:bidding_app/Screens/Forgot-Password-Screen/views/reset_password_screen.dart';
+import 'package:bidding_app/Screens/Auth/Forgot-Password-Screen/views/reset_password_screen.dart';
 import 'package:bidding_app/Screens/Auth/Signup-Screen/views/signup_screen.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset(
+                      getAssetImage(
                         AppImages.logo,
                         height: FetchPixels.getPixelHeight(45),
                       ),
@@ -44,18 +45,21 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: FetchPixels.getPixelHeight(50),
+                    height: FetchPixels.getPixelHeight(150),
                   ),
+              
                   Form(
                     key: _formKey,
                     child: Column(
                       children: [
-                        InputTextField(
+                        FormFieldWidget(
+                          KeyboardType: TextInputType.emailAddress,
                           validator: (value) => provider.validateEmail(value),
                           titleLabel: AppTexts.email,
                         ),
                         SizedBox(height: FetchPixels.getPixelHeight(15)),
-                        InputTextField(
+                        FormFieldWidget(
+                          KeyboardType: TextInputType.visiblePassword,
                           validator: (value) => provider.validateEmptyField(value),
                           titleLabel: AppTexts.password,
                         obscureText: provider.obscureTextPasswordLogin,
@@ -108,7 +112,7 @@ class LoginScreen extends StatelessWidget {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SignupScreen()));
+                              builder: (context) => SignupScreen()));
                     },
                     child: BoldTextWidget(text: AppTexts.signup),
                   ),

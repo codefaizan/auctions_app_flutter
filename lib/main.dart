@@ -1,13 +1,15 @@
-import 'package:bidding_app/Screens/New-Product-Screen/views/new_product_screen.dart';
-import 'package:bidding_app/Screens/Auth/Signup-Screen/views/signup_screen.dart';
+ import 'package:bidding_app/Screens/Auction-Detail-Screen/providers/provider.dart';
+import 'package:bidding_app/Screens/Auth/Login-Screen/views/login_screen.dart';
 import 'package:bidding_app/Screens/Auth/Providers/provider.dart';
+import 'package:bidding_app/Screens/Auth/Signup-Screen/views/signup_screen.dart';
 import 'package:bidding_app/Screens/Chats-Screen/Providers/provider.dart';
+import 'package:bidding_app/Screens/Edit-Profile-Screen/Providers/provider.dart';
+import 'package:bidding_app/Screens/My-Products-Screen/providers/provider.dart';
 import 'package:bidding_app/Screens/New-Product-Screen/provider.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/Screens/Splash-Screen/views/splash_screen.dart';
-import 'package:bidding_app/resources/theme.dart';
+import 'package:bidding_app/base/resources/theme.dart';
 import 'package:bidding_app/widgets/Bottom-Nav-Bar/bottom_nav_bar.dart';
-import 'package:bidding_app/widgets/AuctionContainerWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -29,6 +31,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => AuthProvider()),
         ChangeNotifierProvider(create: (context) => ChatsProvider()),
         ChangeNotifierProvider(create: (context) => NewProductProvider()),
+        ChangeNotifierProvider(create: (context) => productDetailProvider()),
+        ChangeNotifierProvider(create: (context) => AuctionDetailProvider()),
+        ChangeNotifierProvider(create: (context) => EditProfileProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -1,7 +1,8 @@
 import 'package:bidding_app/Screens/Auth/Signup-Screen/views/signup_screen.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/resources/app_images.dart';
-import 'package:bidding_app/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/app_images.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
+import 'package:bidding_app/base/widget_utils.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -33,7 +34,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             child: TextButton(
                 onPressed: () {
                   Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => const SignupScreen(), settings: RouteSettings(name: '/signup')));
+                      MaterialPageRoute(builder: (context) => SignupScreen(), settings: RouteSettings(name: '/signup')));
                 },
                 child: RegularTextWidget(
                   text: isLastPage ? '' : AppTexts.skip,
@@ -79,7 +80,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SignupScreen(), settings: RouteSettings(name: '/signup')));
+                              builder: (context) => SignupScreen(), settings: RouteSettings(name: '/signup')));
                     }
                   : () {
                       _controller.nextPage(
@@ -129,7 +130,7 @@ class BuildIntroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(img, height: imgHeight,),
+        getAssetImage(img, height: imgHeight,),
         SizedBox(height: FetchPixels.getPixelHeight(55)),
         Align(
           alignment: Alignment.centerLeft,

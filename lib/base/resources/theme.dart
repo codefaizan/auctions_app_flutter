@@ -1,57 +1,63 @@
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
+import 'package:bidding_app/base/resources/resources.dart';
 import 'package:flutter/material.dart';
 
-const Color defaultThemeColor = Color.fromARGB(255, 226, 133, 2);
+// const Color defaultThemeColor = Color(0xffe28502);
 ThemeData defaultTheme = ThemeData(
   //colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
-  colorScheme: const ColorScheme.light(
-      primary: defaultThemeColor, secondary: defaultThemeColor),
-  primaryColor: const Color.fromARGB(255, 226, 133, 2),
+  colorScheme: ColorScheme.light(
+      primary: R.colors.theme, secondary: R.colors.theme),
+  primaryColor: R.colors.theme,
 
   useMaterial3: true,
   inputDecorationTheme: InputDecorationTheme(
+    contentPadding:
+    EdgeInsets.symmetric(vertical: FetchPixels.getPixelHeight(15), horizontal: FetchPixels.getPixelWidth(15)),
+    hintStyle: TextStyle(fontSize: FetchPixels.getPixelHeight(17),fontFamily: 'Glacial', color: R.colors.greyColor, fontWeight: FontWeight.bold),
     enabledBorder: OutlineInputBorder(
         borderSide: const BorderSide(
           color: Color.fromARGB(255, 170, 167, 167),
         ),
-        borderRadius: BorderRadius.circular(15)),
+        borderRadius: BorderRadius.circular(FetchPixels.getPixelHeight(9))
+    ),
         labelStyle: TextStyle(fontSize: FetchPixels.getPixelHeight(17),fontFamily: 'Glacial'),
     focusedBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: defaultThemeColor),
-        borderRadius: BorderRadius.circular(12)),
+        borderSide: BorderSide(color: R.colors.theme),
+        borderRadius: BorderRadius.circular(FetchPixels.getPixelHeight(9))
+    ),
   ),
 
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-          backgroundColor: defaultThemeColor,
-          foregroundColor: Colors.white,
+          backgroundColor: R.colors.theme,
+          foregroundColor: R.colors.whiteColor,
           minimumSize: Size.fromHeight(FetchPixels.getPixelWidth(45)),
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(FetchPixels.getPixelHeight(8))),
           textStyle: TextStyle(fontFamily: 'Krona', fontSize: FetchPixels.getPixelHeight(17) ))),
 
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
-        foregroundColor: defaultThemeColor,
+        foregroundColor: R.colors.theme,
         side:
-            const BorderSide(color: defaultThemeColor, width: 2),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            BorderSide(color: R.colors.theme, width: 2),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(FetchPixels.getPixelHeight(8))),
         minimumSize: Size.fromHeight(FetchPixels.getPixelWidth(45)),
         textStyle: TextStyle(fontSize: FetchPixels.getPixelHeight(17), fontFamily: 'Krona')),
   ),
   
-  chipTheme: const ChipThemeData(
-    selectedColor: defaultThemeColor,
+  chipTheme: ChipThemeData(
+    selectedColor: R.colors.theme,
   ),
 
   checkboxTheme: CheckboxThemeData(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
   ),
-  textButtonTheme: const TextButtonThemeData(
+  textButtonTheme: TextButtonThemeData(
     style: ButtonStyle(
-      foregroundColor: MaterialStatePropertyAll(Colors.black),
+      foregroundColor: MaterialStatePropertyAll(R.colors.blackColor),
       textStyle: MaterialStatePropertyAll(
-          TextStyle(fontWeight: FontWeight.w400, fontSize: 17)),
+          TextStyle(fontWeight: FontWeight.w400, fontSize: FetchPixels.getPixelHeight(19))),
     ),
   ),
   actionIconTheme: ActionIconThemeData(

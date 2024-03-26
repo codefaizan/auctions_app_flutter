@@ -10,61 +10,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c76b96a-79f0-4145-846a-02ed9f1e076f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/Models/Product.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Screens/New-Product-Screen/views/new_product_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bidding_app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/bidding_app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Models/Item.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Models/Auction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Models/Auction.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Models/Product.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Models/Product.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/About-Screen/views/about_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/About-Screen/views/about_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/Add-New-Product-Screen/views/add_new_product_screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/Add-New-Product-Screen/widgets/auction_form_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/New-Product-Screen/widgets/auction_form_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/Add-New-Product-Screen/widgets/product_form_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/New-Product-Screen/widgets/product_form_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Auction-Detail-Screen/views/auction_detail_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Auction-Detail-Screen/views/auction_detail_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Auction-Detail-Screen/widgets/bids_list_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Auction-Detail-Screen/widgets/bids_list_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Auction-Detail-Screen/widgets/wrap_text_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Auction-Detail-Screen/widgets/wrap_text_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Auctions-Screen/views/auctions_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Auctions-Screen/views/auctions_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Auth/Login-Screen/views/login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Auth/Login-Screen/views/login_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Auth/Providers/provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Auth/Providers/provider.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Auth/Signup-Screen/views/signup_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Auth/Signup-Screen/views/signup_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/Auth/Signup-Screen/widgets/input_text_field_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Auth/Signup-Screen/widgets/input_text_field_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Auth/Signup-Screen/widgets/input_text_field_widget.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Bids-Screen/views/bids_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Bids-Screen/views/bids_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Chats-Screen/views/chats_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Chats-Screen/views/chats_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Chats-Screen/widgets/chat_tile_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Chats-Screen/widgets/chat_tile_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/ContactUs-Screen/views/contactus_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/ContactUs-Screen/views/contactus_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Filters-Screen/views/filters_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Filters-Screen/views/filters_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Filters-Screen/widgets/filterchip_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Filters-Screen/widgets/filterchip_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/Forgot-Password-Screen/views/new_password_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Forgot-Password-Screen/views/new_password_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/Forgot-Password-Screen/views/otp_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Forgot-Password-Screen/views/otp_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/Forgot-Password-Screen/views/reset_password_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Forgot-Password-Screen/views/reset_password_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/Home-Screen/Providers/provider.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Forgot-Password-Screen/views/new_password_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Forgot-Password-Screen/views/otp_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Forgot-Password-Screen/views/reset_password_screen.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Home-Screen/views/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Home-Screen/views/home_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Home-Screen/widgets/bid_bottom_sheet_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Home-Screen/widgets/bid_bottom_sheet_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Home-Screen/widgets/search_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Home-Screen/widgets/search_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Messages-Screen/views/messages_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Messages-Screen/views/messages_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Messages-Screen/widgets/dismiss_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Messages-Screen/widgets/dismiss_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/My-Products-Screen/views/my_products_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/My-Products-Screen/views/my_products_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/My-Products-Screen/widgets/my_product_item_widget..dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/My-Products-Screen/widgets/my_product_item_widget..dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/New-Product-Screen/provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/New-Product-Screen/provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/New-Product-Screen/views/new_product_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/New-Product-Screen/views/new_product_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/New-Product-Screen/widgets/auction_form_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/New-Product-Screen/widgets/auction_form_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/New-Product-Screen/widgets/product_form_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/New-Product-Screen/widgets/product_form_widget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Notifications-Screen/views/notifications_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Notifications-Screen/views/notifications_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Onboarding-Screen/views/onboarding_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Onboarding-Screen/views/onboarding_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Payment-Screen/views/payment_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Payment-Screen/views/payment_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Privacy-Policy-Screen/views/privacy_policy_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Privacy-Policy-Screen/views/privacy_policy_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/Product-Detail-Screen/views/Product_detail_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Product-Detail-Screen/views/product_detail_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Product-Detail-Screen/views/product_detail_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Product-Detail-Screen/views/product_detail_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Products-Screen/views/products_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Products-Screen/views/products_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Profile-Screen/views/profile_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Profile-Screen/views/profile_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Splash-Screen/views/splash_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Splash-Screen/views/splash_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Wishlist-Screen/views/wishlist_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Wishlist-Screen/views/wishlist_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Wishlist-Screen/widgets/empty_wishlist.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Wishlist-Screen/widgets/empty_wishlist.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Wishlist-Screen/widgets/non_empty_wishlist.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Wishlist-Screen/widgets/non_empty_wishlist.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/constants/app_texts.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/resources/app_texts.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/constants/tConstants.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base/widget_utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base/widget_utils.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/Bottom-Nav-Bar/create_new_item_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/AuctionContainerWidget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/resources/app_images.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/resources/app_texts.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/resources/colors.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/resources/decorations.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/resources/dummy_text.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/resources/resources.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/resources/text_style.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/resources/theme.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/AuctionContainerWidget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/AuctionContainerWidget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/Bottom-Nav-Bar/bottom_nav_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/Bottom-Nav-Bar/bottom_nav_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/ProductContainerWidget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/ProductContainerWidget.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/Success Dialog Popup/success_dialog_popup.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/Success Dialog Popup/success_dialog_popup.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widgets/star_rating_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/star_rating_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/theme-constants/theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/resources/theme.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/linux/flutter/generated_plugins.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,33 +127,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.android.tools.idea.streaming.zoom.toolbar.visible&quot;: &quot;false&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Flutter Projects/bidding_app&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "com.android.tools.idea.streaming.zoom.toolbar.visible": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "D:/Flutter Projects/bidding_app",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.editor.code.editing",
+    "show.migrate.to.gradle.popup": "false"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Flutter Projects\bidding_app\lib\widgets" />
-      <recent name="D:\Flutter Projects\bidding_app\lib\Screens\Chats-Screen" />
-      <recent name="D:\Flutter Projects\bidding_app\lib\Screens\Messages-Screen\Providers" />
-      <recent name="D:\Flutter Projects\bidding_app\lib\widgets\Slidable" />
-      <recent name="D:\Flutter Projects\bidding_app\lib\resources" />
+      <recent name="D:\Flutter Projects\bidding_app\lib\Screens\Auth\Forgot-Password-Screen" />
+      <recent name="D:\Flutter Projects\bidding_app\lib\Screens\Auth\Forgot-Password-Screen\views" />
+      <recent name="D:\Flutter Projects\bidding_app\lib\Screens\Auth" />
+      <recent name="D:\Flutter Projects\bidding_app\lib\base\resources" />
+      <recent name="D:\Flutter Projects\bidding_app\lib\base" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -167,5 +172,16 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
     </layout>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/Screens/Profile-Screen/views/profile_screen.dart</url>
+          <line>28</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

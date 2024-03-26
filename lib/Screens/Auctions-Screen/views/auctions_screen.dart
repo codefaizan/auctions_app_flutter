@@ -1,9 +1,12 @@
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/resources/app_images.dart';
-import 'package:bidding_app/resources/app_texts.dart';
-import 'package:bidding_app/resources/theme.dart';
+import 'package:bidding_app/base/resources/app_images.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/theme.dart';
+import 'package:bidding_app/base/widget_utils.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../base/resources/resources.dart';
 
 class AuctionsScreen extends StatelessWidget {
   const AuctionsScreen({super.key});
@@ -20,7 +23,7 @@ class AuctionsScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset(AppImages.auctionsIcon),
+              getAssetImage(AppImages.auctionsIcon),
               SizedBox(
                 height: FetchPixels.getPixelHeight(20),
               ),
@@ -31,8 +34,8 @@ class AuctionsScreen extends StatelessWidget {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: defaultThemeColor,
+                  foregroundColor: R.colors.whiteColor,
+                  backgroundColor: R.colors.theme,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
                 ),

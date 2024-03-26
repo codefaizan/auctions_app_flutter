@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-import '../resources/resources.dart';
+import 'resources/resources.dart';
 import 'constant.dart';
 
 Widget getVerSpace(double verSpace) {
@@ -61,8 +61,7 @@ Widget getAssetImage(String image,
     double? height,
     Color? color,
     BoxFit boxFit = BoxFit.contain}) {
-  return Image.asset(
-    Constant.assetImagePath + image,
+  return Image.asset(image,
     color: color,
     width: width,
     height: height,

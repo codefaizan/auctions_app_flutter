@@ -12,6 +12,7 @@ class AuctionData{
   String brand;
   String color;
   int rating;
+  bool isFav;
 
 
   AuctionData({
@@ -24,7 +25,8 @@ class AuctionData{
     required this.startingPrice,
     required this.brand,
     required this.color,
-    required this.rating
+    required this.rating,
+    required this.isFav
   });
 
 
@@ -37,19 +39,19 @@ List<AuctionData> demoAuctionList = [
         "assets/images/auction-products/item_img_1.png",
         "assets/images/auction-products/item_img_1.png"
       ],
-      brand: 'PUMA', color: 'Blue', rating: 3, size: 'Small', year: '2023', condition: 'New'),
+      brand: 'PUMA', color: 'Blue', rating: 3, size: 'Small', year: '2023', condition: 'New', isFav: false),
 
   AuctionData(title: 'Product2', desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum i", startingPrice: "\$300",
       images: [
         "assets/images/auction-products/item_img_2.png",
         "assets/images/auction-products/item_img_2.png"
       ],
-      brand: 'GUCCI', color: 'Green', rating: 4, size: 'Medium', year: '2017', condition: 'Used'),
+      brand: 'GUCCI', color: 'Green', rating: 4, size: 'Medium', year: '2017', condition: 'Used', isFav: true),
 
   AuctionData(title: 'Product3', desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum i", startingPrice: "\$50",
       images: [
         "assets/images/auction-products/item_img_1.png",
         "assets/images/auction-products/item_img_1.png"
       ],
-      brand: 'Zara', color: 'Black', rating: 2, size: 'Large', year: '2024', condition: 'New')
+      brand: 'Zara', color: 'Black', rating: 2, size: 'Large', year: '2024', condition: 'New', isFav: false)
 ];

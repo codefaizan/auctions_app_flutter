@@ -3,11 +3,13 @@ import 'package:bidding_app/Screens/Auction-Detail-Screen/views/auction_detail_s
 import 'package:bidding_app/Screens/Home-Screen/widgets/bid_bottom_sheet_widget.dart';
 import 'package:bidding_app/Screens/Product-Detail-Screen/views/product_detail_screen.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/resources/app_texts.dart';
-import 'package:bidding_app/resources/theme.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/theme.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../base/resources/resources.dart';
 
 class ProductContainerWidget extends StatefulWidget {
   final ProductData productData;
@@ -38,7 +40,7 @@ class _AuctionContainerWidgetState extends State<ProductContainerWidget> {
 
         padding: EdgeInsets.all(FetchPixels.getPixelHeight(7)),
         decoration: BoxDecoration(
-            border: Border.all(color: const Color.fromARGB(255, 202, 200, 200)),
+            border: Border.all(color: R.colors.borderColor),
             borderRadius: BorderRadius.circular(15)),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -60,10 +62,10 @@ class _AuctionContainerWidgetState extends State<ProductContainerWidget> {
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: isFavourite == true
-                            ? defaultThemeColor
-                            : Colors.black),
+                            ? R.colors.theme
+                            : R.colors.blackColor),
                     child: IconButton(
-                        color: Colors.white,
+                        color: R.colors.whiteColor,
                         padding: EdgeInsets.zero,
                         iconSize: FetchPixels.getPixelHeight(17),
                         onPressed: () {

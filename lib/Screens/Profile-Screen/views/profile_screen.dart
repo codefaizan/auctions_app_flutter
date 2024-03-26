@@ -1,24 +1,34 @@
+import 'package:bidding_app/Models/ProfileData.dart';
 import 'package:bidding_app/Screens/About-Screen/views/about_screen.dart';
 import 'package:bidding_app/Screens/Auctions-Screen/views/auctions_screen.dart';
 import 'package:bidding_app/Screens/Auth/Login-Screen/views/login_screen.dart';
 import 'package:bidding_app/Screens/Auth/Signup-Screen/views/signup_screen.dart';
 import 'package:bidding_app/Screens/Bids-Screen/views/bids_screen.dart';
+import 'package:bidding_app/Screens/Edit-Profile-Screen/views/edit_profile_screen.dart';
 import 'package:bidding_app/Screens/New-Product-Screen/views/new_product_screen.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
-import 'package:bidding_app/resources/app_images.dart';
+import 'package:bidding_app/base/resources/app_images.dart';
 import 'package:bidding_app/Screens/ContactUs-Screen/views/contactus_screen.dart';
 import 'package:bidding_app/Screens/Chats-Screen/views/chats_screen.dart';
 import 'package:bidding_app/Screens/Privacy-Policy-Screen/views/privacy_policy_screen.dart';
 import 'package:bidding_app/Screens/Products-Screen/views/products_screen.dart';
-import 'package:bidding_app/resources/app_texts.dart';
-import 'package:bidding_app/resources/theme.dart';
+import 'package:bidding_app/base/resources/app_texts.dart';
+import 'package:bidding_app/base/resources/theme.dart';
+import 'package:bidding_app/base/widget_utils.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ProfileScreen extends StatelessWidget {
+import '../../../base/resources/resources.dart';
+
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,24 +47,24 @@ class ProfileScreen extends StatelessWidget {
               heightFactor: FetchPixels.getPixelHeight(1.5),
               child: Stack(children: [
                 CircleAvatar(
-                  radius: FetchPixels.getPixelHeight(85),
+                  radius: FetchPixels.getPixelHeight(80),
                   foregroundImage:
-                      AssetImage('assets/images/intro_slider_img1.png'),
+                      AssetImage(demoProfileData.image),
                 ),
                 Positioned(
                   bottom: 1,
                   right: 1,
                   child: Container(
-                    height: FetchPixels.getPixelHeight(50),
+                    height: FetchPixels.getPixelHeight(40),
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.white,
+                        color: R.colors.whiteColor,
                         border: Border.all(
                             color: const Color.fromARGB(255, 208, 201, 201)
                             )),
                     child: IconButton(
                         padding: EdgeInsets.zero,
-                        onPressed: () {},
+                        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfileScreen(),)).then((_) => setState((){})),
                         icon: const Icon(Icons.mode_edit_outlined)),
                   ),
                 )
@@ -62,141 +72,197 @@ class ProfileScreen extends StatelessWidget {
             ),
             SizedBox(height: FetchPixels.getPixelHeight(20),),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Expanded(
                   child: InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>const AuctionsScreen()));
-                    },
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>const AuctionsScreen())),
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 4),
-                      //width: 50,
+                      padding: EdgeInsets.symmetric(vertical: FetchPixels.getPixelHeight(4)),
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            AppImages.logo,
-                            height: FetchPixels.getPixelHeight(30),
-                            color: Colors.black,
-                          ),
-                          RegularTextWidget(text: AppTexts.auctions, fontSize: FetchPixels.getPixelHeight(19))
-                        ],
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(10)
                       ),
+                      child: Column(children: [
+                        getAssetImage(AppImages.logo, height: FetchPixels.getPixelHeight(27), color: R.colors.blackColor),
+                        RegularTextWidget(text: AppTexts.auction, fontSize: FetchPixels.getPixelHeight(17))
+                      ],),
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: FetchPixels.getPixelWidth(10),
-                ),
+                getHorSpace(FetchPixels.getPixelWidth(10)),
                 Expanded(
                   child: InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>const BidsScreen()));
-                    },
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>const BidsScreen())),
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      padding: EdgeInsets.symmetric(vertical: FetchPixels.getPixelHeight(4)),
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            AppImages.logo,
-                            height: FetchPixels.getPixelHeight(30),
-                            color: Colors.black,
-                          ),
-                          RegularTextWidget(text: AppTexts.bids, fontSize: FetchPixels.getPixelHeight(19))
-                        ],
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(10)
                       ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: FetchPixels.getPixelWidth(10),
-                ),
-                Expanded(
-                  child: InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>const ProductsScreen()));
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 4),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          Image.asset(AppImages.productsIcon, height: FetchPixels.getPixelHeight(30)),
-                          RegularTextWidget(text: AppTexts.products, fontSize: FetchPixels.getPixelHeight(19))
-                        ],
-                      ),
+                      child: Column(children: [
+                        getAssetImage(AppImages.logo, height: FetchPixels.getPixelHeight(27), color: R.colors.blackColor),
+                        RegularTextWidget(text: AppTexts.bids, fontSize: FetchPixels.getPixelHeight(17))
+                      ],),
                     ),
                   ),
                 ),
               ],
             ),
+            getVerSpace(FetchPixels.getPixelWidth(10)),
+            Row(
+              children: [
+                Expanded(
+                  child: InkWell(
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=>const ChatsScreen())),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: FetchPixels.getPixelHeight(4)),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: Column(children: [
+                        getAssetImage(AppImages.chatsIcon, height: FetchPixels.getPixelHeight(28)),
+                        RegularTextWidget(text: AppTexts.chats, fontSize: FetchPixels.getPixelHeight(17))
+                      ],),
+                    ),
+                  ),
+                ),
+                getHorSpace(FetchPixels.getPixelWidth(10)),
+                Expanded(
+                  child: InkWell(
+                    onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> NewProductScreen())),
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: FetchPixels.getPixelHeight(4)),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: Column(children: [
+                        getAssetImage(AppImages.addIcon, height: FetchPixels.getPixelHeight(28)),
+                        RegularTextWidget(text: AppTexts.addProducts, fontSize: FetchPixels.getPixelHeight(17))
+                      ],),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //   children: [
+            //     Expanded(
+            //       child: InkWell(
+            //         onTap: (){
+            //           Navigator.push(context, MaterialPageRoute(builder: (context)=>const AuctionsScreen()));
+            //         },
+            //         child: Container(
+            //           padding: const EdgeInsets.symmetric(vertical: 4),
+            //           //width: 50,
+            //           decoration: BoxDecoration(
+            //               border: Border.all(color: Colors.grey),
+            //               borderRadius: BorderRadius.circular(10)),
+            //           child: Column(
+            //             children: [
+            //               getAssetImage(
+            //                 AppImages.logo,
+            //                 height: FetchPixels.getPixelHeight(30),
+            //                 color: R.colors.blackColor,
+            //               ),
+            //               RegularTextWidget(text: AppTexts.auctions, fontSize: FetchPixels.getPixelHeight(19))
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //     SizedBox(
+            //       width: FetchPixels.getPixelWidth(10),
+            //     ),
+            //     Expanded(
+            //       child: InkWell(
+            //         onTap: (){
+            //           Navigator.push(context, MaterialPageRoute(builder: (context)=>const BidsScreen()));
+            //         },
+            //         child: Container(
+            //           padding: const EdgeInsets.symmetric(vertical: 4),
+            //           decoration: BoxDecoration(
+            //               border: Border.all(color: Colors.grey),
+            //               borderRadius: BorderRadius.circular(10)),
+            //           child: Column(
+            //             children: [
+            //               getAssetImage(
+            //                 AppImages.logo,
+            //                 height: FetchPixels.getPixelHeight(30),
+            //                 color: R.colors.blackColor,
+            //               ),
+            //               RegularTextWidget(text: AppTexts.bids, fontSize: FetchPixels.getPixelHeight(19))
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //     SizedBox(
+            //       width: FetchPixels.getPixelWidth(10),
+            //     ),
+            //
+            //   ],
+            // ),
             SizedBox(
               height: FetchPixels.getPixelHeight(10),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: FetchPixels.getPixelHeight(4)),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: TextButton.icon(
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const ChatsScreen()));
-                        },
-                        icon: Container(
-                          padding: EdgeInsets.all(FetchPixels.getPixelHeight(5)),
-                          decoration: const BoxDecoration(
-                              shape: BoxShape.circle, color: defaultThemeColor),
-                          child: Icon(
-                            Icons.mail_rounded,
-                            color: Colors.white,
-                            size: FetchPixels.getPixelHeight(17),
-                          ),
-                        ),
-                        label: RegularTextWidget(
-                          text: AppTexts.chats, fontSize: FetchPixels.getPixelHeight(19)
-                        )),
-                  ),
-                ),
-                SizedBox(
-                  width: FetchPixels.getPixelHeight(15),
-                ),
-                Expanded(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: FetchPixels.getPixelHeight(4)),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(10)),
-                    child: TextButton.icon(
-                        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context)=> NewProductScreen())),
-                        icon: Container(
-                          padding: EdgeInsets.all(FetchPixels.getPixelHeight(1)),
-                          decoration: const BoxDecoration(
-                              shape: BoxShape.circle, color: defaultThemeColor),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.white,
-                            size: FetchPixels.getPixelHeight(24),
-                          ),
-                        ),
-                        label: RegularTextWidget(
-                          text: AppTexts.addProducts, fontSize: FetchPixels.getPixelHeight(19)
-                        )),
-                  ),
-                )
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //   children: [
+            //     Expanded(
+            //       child: InkWell(
+            //         onTap: (){
+            //           Navigator.push(context, MaterialPageRoute(builder: (context)=>const ProductsScreen()));
+            //         },
+            //         child: Container(
+            //           padding: const EdgeInsets.symmetric(vertical: 4),
+            //           decoration: BoxDecoration(
+            //               border: Border.all(color: Colors.grey),
+            //               borderRadius: BorderRadius.circular(10)),
+            //           child: Column(
+            //             children: [
+            //               Container(
+            //                 padding: EdgeInsets.all(FetchPixels.getPixelHeight(5)),
+            //                 decoration: BoxDecoration(
+            //                     shape: BoxShape.circle,
+            //                     color: R.colors.theme),
+            //                   child: Icon(Icons.email_rounded, size: FetchPixels.getPixelHeight(20), color: R.colors.whiteColor)),
+            //               RegularTextWidget(text: AppTexts.chats, fontSize: FetchPixels.getPixelHeight(19))
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //     SizedBox(width: FetchPixels.getPixelHeight(10)),
+            //     Expanded(
+            //       child: InkWell(
+            //         onTap: (){
+            //           Navigator.push(context, MaterialPageRoute(builder: (context)=>const ProductsScreen()));
+            //         },
+            //         child: Container(
+            //           padding: const EdgeInsets.symmetric(vertical: 4),
+            //           decoration: BoxDecoration(
+            //               border: Border.all(color: Colors.grey),
+            //               borderRadius: BorderRadius.circular(10)),
+            //           child: Column(
+            //             children: [
+            //               Container(
+            //                   padding: EdgeInsets.all(FetchPixels.getPixelHeight(3)),
+            //                   decoration: BoxDecoration(
+            //                       shape: BoxShape.circle,
+            //                       color: R.colors.theme),
+            //                   child: Icon(Icons.add, size: FetchPixels.getPixelHeight(24), color: R.colors.whiteColor)),
+            //               RegularTextWidget(text: AppTexts.addProducts, fontSize: FetchPixels.getPixelHeight(19))
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
             SizedBox(height: FetchPixels.getPixelHeight(10)),
             BoldTextWidget(text: AppTexts.profile.toUpperCase(),
                 fontSize: FetchPixels.getPixelHeight(22)),
@@ -214,7 +280,7 @@ class ProfileScreen extends StatelessWidget {
                     fontSize: FetchPixels.getPixelHeight(19)
                   ),
                   RegularTextWidget(
-                    text: 'Faizan Ahmad',
+                    text: demoProfileData.name,
                     fontSize: FetchPixels.getPixelHeight(19)
                   )
                 ],
@@ -234,7 +300,7 @@ class ProfileScreen extends StatelessWidget {
                     fontSize: FetchPixels.getPixelHeight(19)
                   ),
                   RegularTextWidget(
-                    text: 'faizan2002a@gmail.com',
+                    text: demoProfileData.email,
                     fontSize: FetchPixels.getPixelHeight(19)
                   )
                 ],
@@ -254,8 +320,8 @@ class ProfileScreen extends StatelessWidget {
                     fontSize: FetchPixels.getPixelHeight(19)
                   ),
                   RegularTextWidget(
-                    text: '+92 303 0752535',
-                    fontSize: FetchPixels.getPixelHeight(17)
+                    text: demoProfileData.phoneNumber,
+                    fontSize: FetchPixels.getPixelHeight(19)
                   )
                 ],
               ),
@@ -335,7 +401,7 @@ class ProfileScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
-              
+
                 children: [
                   BoldTextWidget(text: title, fontSize:FetchPixels.getPixelHeight (22)),
                   SizedBox(height: FetchPixels.getPixelHeight(10),),
