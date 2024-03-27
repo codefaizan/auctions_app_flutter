@@ -1,4 +1,3 @@
-import 'package:bidding_app/Screens/Chats-Screen/demoItems.dart';
 import 'package:bidding_app/Screens/Chats-Screen/widgets/chat_tile_widget.dart';
 import 'package:bidding_app/Screens/Chats-Screen/Providers/provider.dart';
 import 'package:bidding_app/Screens/Messages-Screen/widgets/dismiss_widget.dart';
@@ -16,6 +15,7 @@ class ChatsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isSearching=false;
     return Consumer<ChatsProvider>(builder: (context, value, child) {
 
 
@@ -31,7 +31,10 @@ class ChatsScreen extends StatelessWidget {
           child: Column(
             children: [
               TextField(
-                onChanged: (searchText) => value.search(searchText),
+                onChanged: (searchText) {
+                  isSearching=searchText.isNotEmpty?true:false;
+                  value.search(searchText);
+                },
                 decoration: InputDecoration(
                     hintText: AppTexts.search, prefixIcon: Icon(Icons.search_rounded)),
               ),
@@ -39,7 +42,7 @@ class ChatsScreen extends StatelessWidget {
               Expanded(
                 child: ListView.separated(
                   itemCount:
-                  (value.filteredUsers.isEmpty)?
+                  (!isSearching)?
                       value.allUsers.length: value.filteredUsers.length,
                   itemBuilder: (context, index) {
                     return dismiss_widget(context, ChatTileWidget(

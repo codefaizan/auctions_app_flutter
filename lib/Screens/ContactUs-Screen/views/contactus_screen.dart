@@ -56,12 +56,6 @@ class ContactUsScreen extends StatelessWidget {
               height: 20,
             ),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                foregroundColor: R.colors.whiteColor,
-                backgroundColor: R.colors.theme,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15)),
-              ),
               onPressed: () {
                 showDialog(
                   context: context,

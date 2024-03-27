@@ -104,6 +104,7 @@ class _AuctionContainerWidgetState extends State<ProductContainerWidget> {
                     fontSize: FetchPixels.getPixelHeight(16))
               ],
             ),
+            widget.productData.isOwner==false?
             ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -112,7 +113,10 @@ class _AuctionContainerWidgetState extends State<ProductContainerWidget> {
                           builder: (context) =>
                           ProductDetailScreen(productData: widget.productData,)));
                 },
-                child: BoldTextWidget(text: AppTexts.buyNow))
+                style: ButtonStyle(
+                    minimumSize: MaterialStatePropertyAll(Size.fromHeight(FetchPixels.getPixelHeight(38)))
+                ),
+                child: BoldTextWidget(text: AppTexts.buyNow)):SizedBox()
           ],
         ),
       ),

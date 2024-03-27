@@ -1,13 +1,12 @@
  import 'package:bidding_app/Screens/Auction-Detail-Screen/providers/provider.dart';
-import 'package:bidding_app/Screens/Auth/Login-Screen/views/login_screen.dart';
 import 'package:bidding_app/Screens/Auth/Providers/provider.dart';
-import 'package:bidding_app/Screens/Auth/Signup-Screen/views/signup_screen.dart';
 import 'package:bidding_app/Screens/Chats-Screen/Providers/provider.dart';
 import 'package:bidding_app/Screens/Edit-Profile-Screen/Providers/provider.dart';
+import 'package:bidding_app/Screens/Home-Screen/providers/provider.dart';
 import 'package:bidding_app/Screens/My-Products-Screen/providers/provider.dart';
 import 'package:bidding_app/Screens/New-Product-Screen/provider.dart';
-import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/Screens/Splash-Screen/views/splash_screen.dart';
+import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/base/resources/theme.dart';
 import 'package:bidding_app/widgets/Bottom-Nav-Bar/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +22,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // screenHeight = MediaQuery.of(context).size.height;
-    // screenWidth = MediaQuery.of(context).size.width;
     FetchPixels(context);
     
       return MultiProvider(providers: [
@@ -34,6 +31,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => productDetailProvider()),
         ChangeNotifierProvider(create: (context) => AuctionDetailProvider()),
         ChangeNotifierProvider(create: (context) => EditProfileProvider()),
+        ChangeNotifierProvider(create: (context) => HomeScreenProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -21,7 +21,7 @@ import '../../../base/resources/resources.dart';
 // }
 
 class ProductDetailScreen extends StatelessWidget {
-  ProductDetailScreen({super.key, required this.productData});
+  ProductDetailScreen({super.key, required this.productData,});
   final ProductData productData;
 
   @override
@@ -42,7 +42,7 @@ class ProductDetailScreen extends StatelessWidget {
                       fit: BoxFit.cover,
                     ))),
         // flexibleSpace: Image.asset('assets/images/auction-products/item_img_3.png', fit: BoxFit.cover,),
-        actions: [
+        actions: productData.isOwner?null:[
           Align(
               alignment: Alignment.topRight,
               child: IconButton(
@@ -136,7 +136,7 @@ class ProductDetailScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
+      bottomNavigationBar: productData.isOwner?null:Container(
           margin: EdgeInsets.only(
               left: FetchPixels.getPixelWidth(20),
               right: FetchPixels.getPixelWidth(20),

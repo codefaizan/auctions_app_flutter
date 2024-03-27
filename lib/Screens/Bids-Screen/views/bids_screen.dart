@@ -31,20 +31,7 @@ class BidsScreen extends StatelessWidget {
                 height: FetchPixels.getPixelHeight(20),
               ),
               RegularTextWidget(text: AppTexts.dontHaveAnyBids, fontSize: FetchPixels.getPixelHeight(19),
-              ),
-              SizedBox(
-                height: FetchPixels.getPixelHeight(20),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: R.colors.whiteColor,
-                  backgroundColor: R.colors.theme,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                ),
-                onPressed: () {},
-                child: BoldTextWidget(text: AppTexts.placeNow),
-              ),
+              )
             ],
           ),
         ),

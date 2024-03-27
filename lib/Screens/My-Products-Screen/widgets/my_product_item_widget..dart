@@ -1,4 +1,6 @@
+import 'package:bidding_app/Models/Auction.dart';
 import 'package:bidding_app/Models/Product.dart';
+import 'package:bidding_app/Screens/Auction-Detail-Screen/views/auction_detail_screen.dart';
 import 'package:bidding_app/Screens/New-Product-Screen/views/new_product_screen.dart';
 import 'package:bidding_app/Screens/Product-Detail-Screen/views/product_detail_screen.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
@@ -12,14 +14,14 @@ import '../../../base/resources/resources.dart';
 class MyProductItemWidget extends StatelessWidget {
   const MyProductItemWidget({
     super.key,
-    required this.productData
+    required this.auctionData
   });
-  final ProductData productData;
+  final AuctionData auctionData;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ()=> Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductDetailScreen(productData: productData))),
+      onTap: ()=> Navigator.of(context).push(MaterialPageRoute(builder: (context) => AuctionDetailScreen(auctionData: auctionData,))),
       
       child: Container(
         padding: EdgeInsets.all(FetchPixels.getPixelHeight(8)),
@@ -35,7 +37,7 @@ class MyProductItemWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   image: DecorationImage(
                       image: AssetImage(
-                          productData.images[0]),
+                          auctionData.images[0]),
                       fit: BoxFit.cover),
                 ),
                 child: Align(
@@ -51,20 +53,29 @@ class MyProductItemWidget extends StatelessWidget {
               children: [
                 Flexible(
                   child: BoldTextWidget(
-                    text: productData.title,
+                    text: auctionData.title,
                     fontSize: FetchPixels.getPixelHeight(12),
                   ),
                 ),
-                BoldTextWidget(
-                  text: productData.price,
-                  fontSize: FetchPixels.getPixelHeight(12),
+                RegularTextWidget(
+                  text: auctionData.endDate,
                 ),
               ],
             ),
-            RegularTextWidget(
-              text: productData.desc,
-              overFlow: TextOverflow.clip,
-              maxLines: 2,
+            Row(
+              children: [
+                Flexible(
+                  child: RegularTextWidget(
+                    text: auctionData.desc,
+                    overFlow: TextOverflow.clip,
+                    maxLines: 2,
+                  ),
+                ),
+                BoldTextWidget(
+                  text: auctionData.startingPrice,
+                  fontSize: FetchPixels.getPixelHeight(12),
+                ),
+              ],
             )
           ],
         ),

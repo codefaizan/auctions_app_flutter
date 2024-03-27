@@ -87,8 +87,8 @@ class _AuctionContainerWidgetState extends State<AuctionContainerWidget> {
               children: [
                 BoldTextWidget(
                     text: widget.auctionData.title,
-                    fontSize: FetchPixels.getPixelHeight(15)),
-                RegularTextWidget(text: '08:45:29')
+                    fontSize: FetchPixels.getPixelHeight(14)),
+                RegularTextWidget(text: widget.auctionData.endDate)
               ],
             ),
             Row(
@@ -104,14 +104,18 @@ class _AuctionContainerWidgetState extends State<AuctionContainerWidget> {
                 getHorSpace(FetchPixels.getPixelWidth(5)),
                 BoldTextWidget(
                     text: widget.auctionData.startingPrice,
-                    fontSize: FetchPixels.getPixelHeight(15))
+                    fontSize: FetchPixels.getPixelHeight(14))
               ],
             ),
             ElevatedButton(
                 onPressed: () {
                   displayBottomSheet(context);
                 },
-                child: BoldTextWidget(text: AppTexts.placeBid))
+                child: BoldTextWidget(text: AppTexts.bid),
+            style: ButtonStyle(
+              minimumSize: MaterialStatePropertyAll(Size.fromHeight(FetchPixels.getPixelHeight(40))),
+            ),
+            )
           ],
         ),
       ),

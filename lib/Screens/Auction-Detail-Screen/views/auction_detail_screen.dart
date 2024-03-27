@@ -2,12 +2,12 @@ import 'package:bidding_app/Models/Auction.dart';
 import 'package:bidding_app/Screens/Auction-Detail-Screen/providers/provider.dart';
 import 'package:bidding_app/Screens/Auction-Detail-Screen/widgets/bids_list_widget.dart';
 import 'package:bidding_app/Screens/Auction-Detail-Screen/widgets/wrap_text_widget.dart';
+import 'package:bidding_app/Screens/Home-Screen/widgets/bid_bottom_sheet_widget.dart';
 import 'package:bidding_app/Screens/Messages-Screen/views/messages_screen.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/widgets/star_rating_widget.dart';
 import 'package:bidding_app/base/resources/app_images.dart';
 import 'package:bidding_app/base/resources/app_texts.dart';
-import 'package:bidding_app/base/resources/theme.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +16,7 @@ import '../../../base/resources/resources.dart';
 
 
 class AuctionDetailScreen extends StatelessWidget {
-  AuctionDetailScreen({super.key, required this.auctionData});
+  const AuctionDetailScreen({super.key, required this.auctionData});
   final AuctionData auctionData;
 
   @override
@@ -26,14 +26,14 @@ class AuctionDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        actions: [
+        actions: auctionData.isOwner?null:[
           Align(
               alignment: Alignment.topRight,
               child: IconButton(
                   onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => MessagesScreen())),
+                          builder: (context) => const MessagesScreen())),
                   icon: Image.asset(AppImages.messageBtnIcon)))
         ],
         forceMaterialTransparency: true,
@@ -51,11 +51,10 @@ class AuctionDetailScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                 child: Container(
                   margin: EdgeInsets.only(top: FetchPixels.getPixelHeight(310)),
-                  padding: EdgeInsets.symmetric(horizontal: FetchPixels.getPixelWidth(30), vertical: FetchPixels.getPixelHeight(2)),
-                  // width: FetchPixels.getWidthPercentSize(80),
+                  padding: EdgeInsets.symmetric( horizontal: FetchPixels.getPixelWidth(30), vertical: FetchPixels.getPixelHeight(2)),
                   height: FetchPixels.getHeightPercentSize(7.5),
                   decoration: BoxDecoration(
-                    boxShadow: [BoxShadow(blurRadius: 1)],
+                    boxShadow: const [BoxShadow(blurRadius: 1)],
                     border: Border.all(color: R.colors.greyColor),
                       borderRadius: BorderRadius.circular(7),
                       color: R.colors.whiteColor
@@ -67,18 +66,18 @@ class AuctionDetailScreen extends StatelessWidget {
                       Column(
                         children: [
                           BoldTextWidget(
-                              text: '€720',
-                              fontSize: FetchPixels.getPixelHeight(19)),
-                          RegularTextWidget(text: AppTexts.currentBid)
+                              text: auctionData.startDate,
+                              fontSize: FetchPixels.getPixelHeight(14)),
+                          RegularTextWidget(text: AppTexts.startDate)
                         ],
                       ),
                       Column(
                         children: [
                           BoldTextWidget(
-                            text: '08:45:29',
-                            fontSize: FetchPixels.getPixelHeight(19),
+                            text: auctionData.endDate,
+                            fontSize: FetchPixels.getPixelHeight(14),
                           ),
-                          RegularTextWidget(text: AppTexts.auctionEnds),
+                          RegularTextWidget(text: AppTexts.endDate),
                         ],
                       ),
                     ],
@@ -211,10 +210,12 @@ class AuctionDetailScreen extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: Container(
+      bottomNavigationBar: auctionData.isOwner?null:Container(
           margin: EdgeInsets.only(left: FetchPixels.getPixelWidth(20), right: FetchPixels.getPixelWidth(20), bottom: FetchPixels.getPixelHeight(15)),
           child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                displayBottomSheet(context);
+              },
               child: BoldTextWidget(text: AppTexts.placeBid))),
     );
     },);

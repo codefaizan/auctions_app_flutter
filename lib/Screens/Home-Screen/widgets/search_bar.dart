@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import '../../../base/resources/resources.dart';
 
 class SearchBarWidget extends StatelessWidget {
-  const SearchBarWidget();
-
+  const SearchBarWidget(this.onChanged);
+  final Function(String?) onChanged;
   @override
   Widget build(BuildContext context) {
     return SearchBar(
@@ -21,8 +21,10 @@ class SearchBarWidget extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const FiltersScreen()));
                     }, icon: getAssetImage(
                     AppImages.filterIcon,
-                    height: FetchPixels.getPixelHeight(60),
-                  )),
+                    boxFit: BoxFit.cover,
+                    height: FetchPixels.getPixelHeight(77),
+                  ),
+                  ),
                   
                 ],
                 hintText: AppTexts.searchHere,
@@ -30,7 +32,7 @@ class SearchBarWidget extends StatelessWidget {
                 backgroundColor: const MaterialStatePropertyAll(Color.fromARGB(255, 231, 228, 228)),
                 elevation: const MaterialStatePropertyAll(0),
                 padding: MaterialStatePropertyAll(EdgeInsets.only(left: FetchPixels.getPixelWidth(10), top: 0)),
-                
+      onChanged: onChanged,
               );
   }
 }

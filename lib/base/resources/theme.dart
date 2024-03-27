@@ -42,7 +42,7 @@ ThemeData defaultTheme = ThemeData(
         side:
             BorderSide(color: R.colors.theme, width: 2),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(FetchPixels.getPixelHeight(8))),
-        minimumSize: Size.fromHeight(FetchPixels.getPixelWidth(45)),
+        minimumSize: Size.fromHeight(FetchPixels.getPixelHeight(45)),
         textStyle: TextStyle(fontSize: FetchPixels.getPixelHeight(17), fontFamily: 'Krona')),
   ),
   

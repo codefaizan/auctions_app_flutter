@@ -4,9 +4,10 @@ class AppColors {
   Color whiteColor = Colors.white;
   Color blackColor = Colors.black;
   Color greyColor = Colors.grey;
+  Color redColor = Colors.red;
   Color transparent = Colors.transparent;
   Color theme = const Color(0xFFE28502);
-  Color bgColor = const Color(0xFFECECEC);
+  Color bgColor = const Color(0x57A4A3A3);
   Color borderColor = const Color(0xFFCAC8C8);
   Color gradient1 = const Color(0xFFFE4F60);
   Color gradient2 = const Color(0xFFFF6536);

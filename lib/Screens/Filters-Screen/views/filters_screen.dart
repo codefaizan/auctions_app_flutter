@@ -1,8 +1,11 @@
+import 'package:bidding_app/Models/Auction.dart';
+import 'package:bidding_app/Screens/Filters-Screen/views/filter_results_screen.dart';
 import 'package:bidding_app/Screens/Filters-Screen/widgets/checkbox_tile_widget.dart';
 import 'package:bidding_app/Screens/Filters-Screen/widgets/colorbox_widget.dart';
 import 'package:bidding_app/Screens/Filters-Screen/widgets/filterchip_widget.dart';
 import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/base/resources/app_texts.dart';
+import 'package:bidding_app/base/widget_utils.dart';
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -42,31 +45,18 @@ class _FiltersScreenState extends State<FiltersScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 BoldTextWidget(
-                  text: AppTexts.price,
-                  fontSize: FetchPixels.getPixelHeight(20),
-                ),
-                RangeSlider(
-                    values: _rangeValues,
-                    labels: rangeLabels,
-                    divisions: 1000,
-                    min: 0,
-                    max: 1000,
-                    activeColor:  R.colors.theme,
-                    onChanged: (newValue) {
-                      _rangeValues = newValue;
-                      setState(() {});
-                    }),
                 BoldTextWidget(
                   text: AppTexts.categories,
                   fontSize: FetchPixels.getPixelHeight(20)
                 ),
+
+                getVerSpace(FetchPixels.getPixelHeight(10)),
                 GridView.builder(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     crossAxisSpacing: FetchPixels.getPixelWidth(5),
                     mainAxisSpacing: FetchPixels.getPixelHeight(5),
-                    childAspectRatio: FetchPixels.getPixelHeight(4),
+                    childAspectRatio: FetchPixels.getPixelHeight(3),
                   ),
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
@@ -85,50 +75,27 @@ class _FiltersScreenState extends State<FiltersScreen> {
                             padding: EdgeInsets.zero,
                             side: BorderSide(color: (selectedFilterIndex == index)?R.colors.theme:R.colors.greyColor),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5),
+                              borderRadius: BorderRadius.circular(7),
                             ),
                           ),
                       );
                   },
 
                 ),
+            getVerSpace(FetchPixels.getPixelHeight(60)),
+            ElevatedButton(onPressed: () {
+              List<AuctionData> filteredData = [];
+              filteredData.addAll(demoAuctionList.where((element) => element.category.contains(categories[selectedFilterIndex])).toList());
+              print(filteredData.length);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => FilterResultScreen(filteredData: filteredData),));
 
-                // BoldTextWidget(
-                //   text: AppTexts.brands,
-                //   fontSize: FetchPixels.getPixelHeight(20)
-                // ),
-                // const Column(children: [
-                //   CheckboxTileWidget(checkboxTitle: 'ZARA',),
-                //   CheckboxTileWidget(checkboxTitle: 'GUCCI',),
-                //   CheckboxTileWidget(checkboxTitle: 'PUMA',),
-                // ],),
-                //
-                // BoldTextWidget(
-                //   text: AppTexts.colors,
-                //   fontSize: FetchPixels.getPixelHeight(20)
-                // ),
-                // Wrap(
-                //   runSpacing: FetchPixels.getPixelHeight(5),
-                //   spacing: FetchPixels.getPixelWidth(5),
-                //   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //   children: [
-                //     ColorBoxWidget(color: Color(0xFFd9d9d9)),
-                //     ColorBoxWidget(color: Color(0xFF000000)),
-                //     ColorBoxWidget(color: Color(0xFFed0006)),
-                //     ColorBoxWidget(color: Color(0xFF14b11a)),
-                //     ColorBoxWidget(color: Color(0xFF009cde)),
-                //     ColorBoxWidget(color: Color(0xFF003087)),
-                //   ],
-                // ),
+            },
+              child: BoldTextWidget(text: AppTexts.applyFilters),),
               ],
             ),
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        margin: EdgeInsets.only(left: FetchPixels.getPixelWidth(20), right: FetchPixels.getPixelWidth(20), bottom: FetchPixels.getPixelHeight(20)),
-        child: ElevatedButton(onPressed: ()=> Navigator.pop(context),
-        child: BoldTextWidget(text: AppTexts.applyFilters),),),
     );
   }
 }

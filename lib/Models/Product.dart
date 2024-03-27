@@ -34,18 +34,18 @@ List<String> names = [];
           "assets/images/auction-products/item_img_1.png",
           "assets/images/auction-products/item_img_1.png"
         ],
-        brand: 'PUMA', color: 'Blue', rating: 3, isOwner: true),
+        brand: 'PUMA', color: 'Blue', rating: 3, isOwner: false),
     ProductData(title: 'Product2', desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum i", price: "\$300",
         images: [
           "assets/images/auction-products/item_img_2.png",
           "assets/images/auction-products/item_img_2.png"
         ],
-        brand: 'GUCCI', color: 'Green', rating: 4, isOwner: true),
+        brand: 'GUCCI', color: 'Green', rating: 4, isOwner: false),
 
     ProductData(title: 'Product3', desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum i", price: "\$50",
         images: [
           "assets/images/auction-products/item_img_1.png",
           "assets/images/auction-products/item_img_1.png"
         ],
-        brand: 'Zara', color: 'Black', rating: 2, isOwner: false),
+        brand: 'Zara', color: 'Black', rating: 2, isOwner: true),
   ];

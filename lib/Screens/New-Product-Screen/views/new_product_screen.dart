@@ -95,10 +95,6 @@ class NewProductScreen extends StatelessWidget {
                 ),
                 getVerSpace(FetchPixels.getPixelHeight(10)),
                 AuctionForm(formKey: _formKey),
-                // SwitchButton(value),
-                // (value.isAuctionForm)
-                //     ? AuctionForm()
-                //     : const ProductForm(),
               ],
             ),
           ),

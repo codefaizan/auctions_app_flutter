@@ -12,6 +12,9 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+   PageController auctionsListPageController=PageController();
+  int currentPage = 0;
+
   toggleConfirmPasswordSignup() {
     //          show/hide confirm password
     obscureTextConfirmPasswordSignup = !obscureTextConfirmPasswordSignup;

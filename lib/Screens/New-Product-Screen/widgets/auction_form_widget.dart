@@ -34,9 +34,9 @@ class AuctionForm extends StatelessWidget {
         getVerSpace(FetchPixels.getPixelHeight(10)),
         FormFieldWidget(hintText: AppTexts.name, validator: (value) => provider.validateEmptyField(value),),
         getVerSpace(FetchPixels.getPixelHeight(10)),
-        FormFieldWidget(hintText: AppTexts.startingPrice, validator: (value) => provider.validateEmptyField(value)),
+        FormFieldWidget(hintText: AppTexts.startingPrice, validator: (value) => provider.validateEmptyField(value), KeyboardType: TextInputType.number,),
         getVerSpace(FetchPixels.getPixelHeight(10),),
-        FormFieldWidget(hintText: AppTexts.minimumPrice, validator: (value) => provider.validateEmptyField(value)),
+        FormFieldWidget(hintText: AppTexts.minimumPrice, validator: (value) => provider.validateEmptyField(value), KeyboardType: TextInputType.number,),
         getVerSpace(FetchPixels.getPixelHeight(10)),
         DropdownButtonFormField(
             decoration: InputDecoration(
@@ -45,7 +45,7 @@ class AuctionForm extends StatelessWidget {
             items:List.generate(duration.length, (index) => DropdownMenuItem(child: RegularTextWidget(text: duration[index]), value: index-1,)),
             onChanged: (onChanged){}),
         getVerSpace(FetchPixels.getPixelHeight(10)),
-        FormFieldWidget(hintText: 'City', validator: (value) => provider.validateEmptyField(value)),
+        FormFieldWidget(hintText: 'City', validator: (value) => provider.validateEmptyField(value),),
         getVerSpace(FetchPixels.getPixelHeight(10)),
         FormFieldWidget(hintText: AppTexts.description, validator: (value) => provider.validateEmptyField(value)),
 
