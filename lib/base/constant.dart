@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
+
 
 class Constant {
   static String assetImagePath = "assets/images/";
@@ -17,9 +17,9 @@ class Constant {
     return (percent * total) / 100;
   }
 
-  static backToPrev(BuildContext context) {
-    Get.back();
-  }
+  // static backToPrev(BuildContext context) {
+  //   Get.back();
+  // }
 
   static getCurrency(BuildContext context) {
     return "ETH";

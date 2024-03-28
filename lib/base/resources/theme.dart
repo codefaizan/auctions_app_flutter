@@ -31,7 +31,7 @@ ThemeData defaultTheme = ThemeData(
       style: ElevatedButton.styleFrom(
           backgroundColor: R.colors.theme,
           foregroundColor: R.colors.whiteColor,
-          minimumSize: Size.fromHeight(FetchPixels.getPixelWidth(45)),
+          minimumSize: Size.fromHeight(FetchPixels.getPixelHeight(45)),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(FetchPixels.getPixelHeight(8))),
           textStyle: TextStyle(fontFamily: 'Krona', fontSize: FetchPixels.getPixelHeight(17) ))),

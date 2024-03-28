@@ -19,13 +19,14 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Timer(const Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (context) => OnboardingScreen(),
-              settings: const RouteSettings(name: '/signup')));
-    });
+    // Timer(const Duration(seconds: 3), () {
+    //   print('splash');
+    //   Navigator.pushReplacement(
+    //       context,
+    //       MaterialPageRoute(
+    //           builder: (context) => OnboardingScreen(),
+    //           settings: const RouteSettings(name: '/signup')));
+    // });
   }
 
   @override
@@ -40,11 +41,18 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-              height: FetchPixels.getPixelHeight(65),
-              child: getAssetImage(AppImages.logo),
+            Container(
+              padding: EdgeInsets.all(25),
+              color: Colors.red,
+              height: FetchPixels.getPixelHeight(200),
+              width: FetchPixels.getPixelWidth(600),
+
+              // child: Image.asset(AppImages.auctionsIcon),
             ),
+            Image.asset(AppImages.auctionsIcon),
+            Image.asset(AppImages.logo,height: FetchPixels.getPixelHeight(100),width: FetchPixels.getPixelWidth(100),),
             SizedBox(height: FetchPixels.getPixelHeight(10)),
+
             BoldTextWidget(text: AppTexts.appName),
           ],
         ),

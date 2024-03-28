@@ -5,36 +5,26 @@ class AuctionData{
   List<String> images;
   String title;
   String desc;
-  String size;
-  String year;
-  String condition;
   String startingPrice;
-  String brand;
+  String minimumPrice;
   String startDate;
   String endDate;
-  String color;
-  int rating;
-  bool isFav;
   bool isOwner;
   String category;
+  String city;
 
 
   AuctionData({
     required this.images,
     required this.title,
     required this.desc,
-    required this.size,
-    required this.year,
-    required this.condition,
     required this.startingPrice,
-    required this.brand,
-    required this.color,
-    required this.rating,
-    required this.isFav,
+    required this.minimumPrice,
     required this.isOwner,
     required this.startDate,
     required this.endDate,
-    required this.category
+    required this.category,
+    required this.city
   });
 
 
@@ -47,19 +37,19 @@ List<AuctionData> demoAuctionList = [
         "assets/images/auction-products/item_img_1.png",
         "assets/images/auction-products/item_img_1.png"
       ],
-      brand: 'PUMA', color: 'Blue', rating: 3, size: 'Small', year: '2023', condition: 'New', isFav: false, isOwner: false, startDate: '01-04-2024', endDate: '12-05-2024', category: 'Automobile'),
+      isOwner: false, startDate: '01-04-2024', endDate: '12-05-2024', category: 'Automobile', city: 'Bwp', minimumPrice: '\$100'),
 
   AuctionData(title: 'Prod2', desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum i", startingPrice: "\$300",
       images: [
         "assets/images/auction-products/item_img_2.png",
         "assets/images/auction-products/item_img_2.png"
       ],
-      brand: 'GUCCI', color: 'Green', rating: 4, size: 'Medium', year: '2017', condition: 'Used', isFav: true, isOwner: false, startDate: '15-03-2024', endDate: '20-03-2024', category: 'Books'),
+      isOwner: false, startDate: '15-03-2024', endDate: '20-03-2024', category: 'Books', city: 'Lahore', minimumPrice: '\$100'),
 
   AuctionData(title: 'Prod3', desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum i", startingPrice: "\$50",
       images: [
         "assets/images/auction-products/item_img_1.png",
         "assets/images/auction-products/item_img_1.png"
       ],
-      brand: 'Zara', color: 'Black', rating: 2, size: 'Large', year: '2024', condition: 'New', isFav: false, isOwner: true, startDate: '02-02-2024', endDate: '04-04-2024', category: 'Comics')
+     isOwner: true, startDate: '02-02-2024', endDate: '04-04-2024', category: 'Comics', city: 'Multan', minimumPrice: '\$100')
 ];

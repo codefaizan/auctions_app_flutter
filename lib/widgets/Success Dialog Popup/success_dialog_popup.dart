@@ -1,6 +1,5 @@
 import 'package:bidding_app/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../base/resources/app_texts.dart';
 

@@ -10,6 +10,7 @@ import 'package:bidding_app/base/resizer/fetch_pixels.dart';
 import 'package:bidding_app/base/resources/theme.dart';
 import 'package:bidding_app/widgets/Bottom-Nav-Bar/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,11 +20,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    FetchPixels(context);
-    
+
+  //  FetchPixels(context);
+
       return MultiProvider(providers: [
         ChangeNotifierProvider(create: (context) => AuthProvider()),
         ChangeNotifierProvider(create: (context) => ChatsProvider()),
@@ -33,27 +34,14 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => EditProfileProvider()),
         ChangeNotifierProvider(create: (context) => HomeScreenProvider()),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: defaultTheme,
-        // home: LoginScreen(),
-        home: BottomBar(),
-        // home: MessagesScreen(),
+        title: 'Hauptsache-Platz',
+        home:SplashScreen() ,
+        //theme: defaultTheme,
+      //  home: const SplashScreen(),
       )
       );
     
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('HOME')),
-    );
   }
 }
