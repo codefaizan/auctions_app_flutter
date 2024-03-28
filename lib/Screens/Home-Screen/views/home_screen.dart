@@ -99,8 +99,8 @@ auctionsListPageController = PageController(
                   provider.allAuctions.length,
                       (index) {
               return SizedBox(
-                width: FetchPixels.getWidthPercentSize(45),
-                height: FetchPixels.getPixelHeight(300),
+                width: FetchPixels.getWidthPercentSize(44),
+                height: FetchPixels.getPixelHeight(280),
                 child: AuctionContainerWidget(
                   auctionData: isSearching? provider.filteredAuctions[index]: demoAuctionList[index],
                   itemIndex: index,

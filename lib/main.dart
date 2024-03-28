@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-  //  FetchPixels(context);
+   FetchPixels(context);
 
       return MultiProvider(providers: [
         ChangeNotifierProvider(create: (context) => AuthProvider()),
@@ -34,11 +34,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => EditProfileProvider()),
         ChangeNotifierProvider(create: (context) => HomeScreenProvider()),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Hauptsache-Platz',
-        home:SplashScreen() ,
-        //theme: defaultTheme,
+        home:SplashScreen(),
+        theme: DefaultTheme.getThemeData(),
       //  home: const SplashScreen(),
       )
       );
