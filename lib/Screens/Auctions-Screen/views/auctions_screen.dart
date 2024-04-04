@@ -37,16 +37,19 @@ class _MyProductsScreenState extends State<AuctionsScreen> {
         ),
         centerTitle: true,
       ),
-      body: GridView.builder(
-        itemCount: filteredData.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: FetchPixels.getPixelWidth(12),
-            mainAxisSpacing: FetchPixels.getPixelHeight(12),
-            mainAxisExtent: FetchPixels.getPixelHeight(250)),
-        itemBuilder: (context, index) {
-          return MyProductItemWidget(auctionData: filteredData[index],);
-        },
+      body: Padding(
+        padding: EdgeInsets.symmetric(vertical: FetchPixels.getPixelHeight(10), horizontal: FetchPixels.getPixelWidth(10)),
+        child: GridView.builder(
+          itemCount: filteredData.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: FetchPixels.getPixelWidth(12),
+              mainAxisSpacing: FetchPixels.getPixelHeight(12),
+              mainAxisExtent: FetchPixels.getPixelHeight(250)),
+          itemBuilder: (context, index) {
+            return MyProductItemWidget(auctionData: filteredData[index],);
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),

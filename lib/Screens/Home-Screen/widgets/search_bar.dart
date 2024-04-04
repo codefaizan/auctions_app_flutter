@@ -22,7 +22,7 @@ class SearchBarWidget extends StatelessWidget {
                     }, icon: getAssetImage(
                     AppImages.filterIcon,
                     boxFit: BoxFit.cover,
-                    height: FetchPixels.getPixelHeight(77),
+                    width: FetchPixels.getPixelWidth(60),
                   ),
                   ),
                   
@@ -31,7 +31,7 @@ class SearchBarWidget extends StatelessWidget {
                 hintStyle: MaterialStatePropertyAll(TextStyle(color: R.colors.hintText,)),
                 backgroundColor: const MaterialStatePropertyAll(Color.fromARGB(255, 231, 228, 228)),
                 elevation: const MaterialStatePropertyAll(0),
-                padding: MaterialStatePropertyAll(EdgeInsets.only(left: FetchPixels.getPixelWidth(10), top: 0)),
+                padding: MaterialStatePropertyAll(EdgeInsets.only(left: FetchPixels.getPixelWidth(10))),
       onChanged: onChanged,
               );
   }

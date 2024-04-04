@@ -16,7 +16,7 @@ class WishlistScreen extends StatelessWidget {
         appBar: AppBar(
           title: BoldTextWidget(
             text: AppTexts.wishlist,
-            fontSize: FetchPixels.getPixelHeight(22),
+            fontSize: FetchPixels.getPixelHeight(21),
           ),
           centerTitle: true,
           

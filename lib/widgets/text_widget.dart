@@ -7,9 +7,10 @@ class RegularTextWidget extends StatelessWidget {
   final Color? color;
   final int? maxLines;
   final TextOverflow? overFlow;
+  final bool? softWrap;
 
   RegularTextWidget(
-      {super.key, required this.text, this.fontSize, this.fontWeight, this.color, this.maxLines, this.overFlow});
+      {super.key, required this.text, this.fontSize, this.fontWeight, this.color, this.maxLines, this.overFlow, this.softWrap});
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class RegularTextWidget extends StatelessWidget {
         ),
         maxLines: maxLines,
         overflow: overFlow,
+      softWrap: softWrap,
     );
   }
 }

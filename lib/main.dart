@@ -39,7 +39,6 @@ class MyApp extends StatelessWidget {
         title: 'Hauptsache-Platz',
         home:SplashScreen(),
         theme: DefaultTheme.getThemeData(),
-      //  home: const SplashScreen(),
       )
       );
     

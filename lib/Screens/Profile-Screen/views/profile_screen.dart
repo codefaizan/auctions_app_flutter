@@ -33,7 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         title: BoldTextWidget(
           text: AppTexts.profile,
-          fontSize: FetchPixels.getPixelHeight(22),
+          fontSize: FetchPixels.getPixelHeight(21),
         ),
         centerTitle: true,
       ),
@@ -82,7 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(10)
                       ),
                       child: Column(children: [
-                        getAssetImage(AppImages.logo, height: FetchPixels.getPixelHeight(27), color: R.colors.blackColor),
+                        getAssetImage(AppImages.logo, height: FetchPixels.getPixelHeight(25), color: R.colors.blackColor),
                         RegularTextWidget(text: AppTexts.auction, fontSize: FetchPixels.getPixelHeight(17))
                       ],),
                     ),
@@ -100,7 +100,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(10)
                       ),
                       child: Column(children: [
-                        getAssetImage(AppImages.logo, height: FetchPixels.getPixelHeight(27), color: R.colors.blackColor),
+                        getAssetImage(AppImages.logo, height: FetchPixels.getPixelHeight(25), color: R.colors.blackColor),
                         RegularTextWidget(text: AppTexts.bids, fontSize: FetchPixels.getPixelHeight(17))
                       ],),
                     ),
@@ -122,7 +122,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(10)
                       ),
                       child: Column(children: [
-                        getAssetImage(AppImages.chatsIcon, height: FetchPixels.getPixelHeight(28)),
+                        getAssetImage(AppImages.chatsIcon, height: FetchPixels.getPixelHeight(26)),
                         RegularTextWidget(text: AppTexts.chats, fontSize: FetchPixels.getPixelHeight(17))
                       ],),
                     ),
@@ -140,7 +140,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(10)
                       ),
                       child: Column(children: [
-                        getAssetImage(AppImages.addIcon, height: FetchPixels.getPixelHeight(28)),
+                        getAssetImage(AppImages.addIcon, height: FetchPixels.getPixelHeight(26)),
                         RegularTextWidget(text: AppTexts.addProducts, fontSize: FetchPixels.getPixelHeight(17))
                       ],),
                     ),
@@ -160,7 +160,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               padding: EdgeInsets.all(FetchPixels.getPixelHeight(11)),
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(8)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -180,7 +180,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               padding: EdgeInsets.all(FetchPixels.getPixelHeight(11)),
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(8)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -200,7 +200,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               padding: EdgeInsets.all(FetchPixels.getPixelHeight(11)),
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(10)),
+                  borderRadius: BorderRadius.circular(8)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -220,35 +220,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             BoldTextWidget(text: AppTexts.settings,
                 fontSize: FetchPixels.getPixelHeight(22)),
-            getVerSpace(FetchPixels.getPixelHeight(10)),
+            // getVerSpace(FetchPixels.getPixelHeight(10)),
             expandedButtonWidget(AppTexts.aboutUs, ()=>Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const AboutUsScreen()))),
-            getVerSpace(FetchPixels.getPixelHeight(10)),
+            // getVerSpace(FetchPixels.getPixelHeight(10)),
 
             expandedButtonWidget(AppTexts.contactUs, () => Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (context) => ContactUsScreen()))),
-        getVerSpace(FetchPixels.getPixelHeight(10)),
+        // getVerSpace(FetchPixels.getPixelHeight(10)),
 
             expandedButtonWidget(AppTexts.termsPrivacy, () => Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (context) => const PrivacyPolicyScreen()))),
-            getVerSpace(FetchPixels.getPixelHeight(10)),
+            // getVerSpace(FetchPixels.getPixelHeight(10)),
             expandedButtonWidget(AppTexts.deleteAccount, () => profileBottomSheet(AppTexts.deleteAccount,
                 AppTexts.deleteConfirmation, context,
                     ()=> Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>SignupScreen()), (route) => false),
                     ()=>Navigator.of(context).pop()
             )),
-            getVerSpace(FetchPixels.getPixelHeight(10)),
+            // getVerSpace(FetchPixels.getPixelHeight(10)),
             expandedButtonWidget(AppTexts.logOut, () => profileBottomSheet(
                 AppTexts.logOut, AppTexts.logoutConfirmation, context,
                     ()=> Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>LoginScreen()), (route) => false),
                     ()=>Navigator.of(context).pop(),
             ),
                 R.colors.redColor
-            )
+            ),
           ],
         ),
       ),

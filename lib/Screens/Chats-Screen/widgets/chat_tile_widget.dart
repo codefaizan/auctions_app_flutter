@@ -23,8 +23,8 @@ class ChatTileWidget extends StatelessWidget {
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context)=>const MessagesScreen()));
         },
-        title: BoldTextWidget(text: chat.title, fontSize: FetchPixels.getPixelHeight(18)),
-        subtitle: RegularTextWidget(text: chat.subTitle, fontSize: FetchPixels.getPixelHeight(17), maxLines: 2, overFlow: TextOverflow.clip,),
+        title: BoldTextWidget(text: chat.title, fontSize: FetchPixels.getPixelHeight(15)),
+        subtitle: RegularTextWidget(text: chat.subTitle, fontSize: FetchPixels.getPixelHeight(15), maxLines: 2, overFlow: TextOverflow.clip,),
         leading: CircleAvatar(
             radius: FetchPixels.getPixelHeight(37),
             foregroundImage: AssetImage(chat.avatar)),

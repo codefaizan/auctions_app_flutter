@@ -33,7 +33,7 @@ class _MyProductsScreenState extends State<MyProductsScreen> {
       appBar: AppBar(
         title: BoldTextWidget(
           text: AppTexts.myProducts,
-          fontSize: FetchPixels.getPixelHeight(22),
+          fontSize: FetchPixels.getPixelHeight(21),
         ),
         centerTitle: true,
       ),

@@ -54,7 +54,7 @@ auctionsListPageController = PageController(
         appBar: AppBar(
           title: BoldTextWidget(
             text: AppTexts.appName,
-            fontSize: FetchPixels.getPixelHeight(22),
+            fontSize: FetchPixels.getPixelHeight(21),
           ),
           centerTitle: true,
           actions: [
@@ -67,7 +67,7 @@ auctionsListPageController = PageController(
                 },
                 icon: Icon(
                   Icons.notifications_none,
-                  size: FetchPixels.getPixelHeight(33),
+                  size: FetchPixels.getPixelHeight(32),
                 ))
           ],
         ),
@@ -86,7 +86,7 @@ auctionsListPageController = PageController(
             // Products
             BoldTextWidget(
               text: AppTexts.auction,
-              fontSize: FetchPixels.getPixelHeight(25),
+              fontSize: FetchPixels.getPixelHeight(23),
             ),
 
             Wrap(

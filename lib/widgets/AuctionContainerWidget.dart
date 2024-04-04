@@ -39,7 +39,7 @@ class _AuctionContainerWidgetState extends State<AuctionContainerWidget> {
               builder: (context) => AuctionDetailScreen(auctionData: widget.auctionData,))),
       child: Container(
         width: FetchPixels.getPixelWidth(230),
-        padding: EdgeInsets.all(FetchPixels.getPixelHeight(7)),
+        padding: EdgeInsets.all(FetchPixels.getPixelHeight(4)),
         decoration: BoxDecoration(
             border: Border.all(color: const Color.fromARGB(255, 202, 200, 200)),
             borderRadius: BorderRadius.circular(15)),
@@ -87,25 +87,30 @@ class _AuctionContainerWidgetState extends State<AuctionContainerWidget> {
               children: [
                 BoldTextWidget(
                     text: widget.auctionData.title,
-                    fontSize: FetchPixels.getPixelHeight(14)),
+                    fontSize: FetchPixels.getPixelHeight(13)),
                 RegularTextWidget(text: widget.auctionData.endDate)
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                    fit: FlexFit.loose,
+            SizedBox(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
                     child: RegularTextWidget(
                       text: widget.auctionData.desc,
-                      overFlow: TextOverflow.fade,
+                      overFlow: TextOverflow.ellipsis,
                       maxLines: 2,
-                    )),
-                getHorSpace(FetchPixels.getPixelWidth(5)),
-                BoldTextWidget(
-                    text: widget.auctionData.startingPrice,
-                    fontSize: FetchPixels.getPixelHeight(14))
-              ],
+                      softWrap: true,
+
+                    ),
+                  ),
+                  getHorSpace(FetchPixels.getPixelWidth(7)),
+                  BoldTextWidget(
+                      text: widget.auctionData.startingPrice,
+                      fontSize: FetchPixels.getPixelHeight(13))
+                ],
+              ),
             ),
             ElevatedButton(
                 onPressed: () {

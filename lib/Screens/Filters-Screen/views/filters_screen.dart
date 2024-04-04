@@ -31,7 +31,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
       appBar: AppBar(
         title: BoldTextWidget(
           text: AppTexts.filters,
-          fontSize: FetchPixels.getPixelHeight(22)
+          fontSize: FetchPixels.getPixelHeight(21)
         ),
         centerTitle: true,
         
@@ -47,7 +47,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
               children: [
                 BoldTextWidget(
                   text: AppTexts.categories,
-                  fontSize: FetchPixels.getPixelHeight(20)
+                  fontSize: FetchPixels.getPixelHeight(18)
                 ),
 
                 getVerSpace(FetchPixels.getPixelHeight(10)),

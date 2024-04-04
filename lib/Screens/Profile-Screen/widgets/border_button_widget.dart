@@ -7,7 +7,7 @@ import '../../../widgets/text_widget.dart';
 Widget expandedButtonWidget(String text, Function() onPressed, [Color? color]){
   return OutlinedButton(onPressed: onPressed,
     style: OutlinedButton.styleFrom(
-      padding: EdgeInsets.symmetric(horizontal: FetchPixels.getPixelWidth(12), vertical: FetchPixels.getPixelHeight(13)),
+      padding: EdgeInsets.symmetric(horizontal: FetchPixels.getPixelWidth(12), vertical: FetchPixels.getPixelHeight(18)),
       side: BorderSide(color: R.colors.greyColor),
       alignment: Alignment.centerLeft,
       foregroundColor: R.colors.blackColor,

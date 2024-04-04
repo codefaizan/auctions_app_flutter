@@ -11,10 +11,24 @@
   <component name="ChangeListManager">
     <list default="true" id="2c76b96a-79f0-4145-846a-02ed9f1e076f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Auctions-Screen/views/auctions_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Auctions-Screen/views/auctions_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Auth/Login-Screen/views/login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Auth/Login-Screen/views/login_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Auth/Signup-Screen/views/signup_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Auth/Signup-Screen/views/signup_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Chats-Screen/widgets/chat_tile_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Chats-Screen/widgets/chat_tile_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Filters-Screen/views/filters_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Filters-Screen/views/filters_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Screens/Home-Screen/views/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Home-Screen/views/home_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Screens/Splash-Screen/views/splash_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Splash-Screen/views/splash_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Home-Screen/widgets/search_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Home-Screen/widgets/search_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Messages-Screen/views/messages_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Messages-Screen/views/messages_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/My-Products-Screen/views/my_products_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/My-Products-Screen/views/my_products_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Profile-Screen/views/profile_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Profile-Screen/views/profile_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Profile-Screen/widgets/border_button_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Profile-Screen/widgets/border_button_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/Wishlist-Screen/views/wishlist_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/Wishlist-Screen/views/wishlist_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/base/resources/app_texts.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base/resources/app_texts.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/base/resources/theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/base/resources/theme.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/AuctionContainerWidget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/AuctionContainerWidget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/text_field_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/text_field_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/text_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/text_widget.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
