@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Hauptsache-Platz',
-        home:SplashScreen(),
-        theme: DefaultTheme.getThemeData(),
+        // home:SplashScreen(),
+        // theme: DefaultTheme.getThemeData(),
       )
       );
     
